@@ -1,0 +1,215 @@
+[21-Jan-2017 08:45:33 America/New_York] PHP Strict Standards:  Only variables should be passed by reference in /home/pareciap/paybacca.com/inc/functions.inc.php on line 994
+[21-Jan-2017 08:46:07 America/New_York] PHP Strict Standards:  Only variables should be passed by reference in /home/pareciap/paybacca.com/inc/functions.inc.php on line 994
+[21-Jan-2017 13:51:36 America/New_York] PHP Strict Standards:  Only variables should be passed by reference in /home/pareciap/paybacca.com/inc/functions.inc.php on line 994
+[21-Jan-2017 15:06:26 America/New_York] PHP Strict Standards:  Only variables should be passed by reference in /home/pareciap/paybacca.com/inc/functions.inc.php on line 994
+[31-Jan-2017 04:12:35 America/New_York] PHP Warning:  mysql_query() expects parameter 1 to be string, resource given in /home/pareciap/paybacca.com/inc/functions.inc.php on line 19
+[31-Jan-2017 04:12:56 America/New_York] PHP Warning:  mysql_query() expects parameter 1 to be string, resource given in /home/pareciap/paybacca.com/myaccount2.php on line 70
+[31-Jan-2017 04:18:47 America/New_York] PHP Fatal error:  Non-static method mysqli_result::fetch_array() cannot be called statically in /home/pareciap/paybacca.com/myaccount2.php on line 71
+[31-Jan-2017 04:19:08 America/New_York] PHP Warning:  mysqli_fetch_row() expects parameter 1 to be mysqli_result, resource given in /home/pareciap/paybacca.com/myaccount2.php on line 71
+[31-Jan-2017 04:20:51 America/New_York] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, array given in /home/pareciap/paybacca.com/myaccount2.php on line 72
+[31-Jan-2017 04:50:06 America/New_York] PHP Warning:  array_merge(): Argument #1 is not an array in /home/pareciap/paybacca.com/myaccount2.php on line 77
+[31-Jan-2017 04:50:49 America/New_York] PHP Parse error:  syntax error, unexpected 'as' (T_AS) in /home/pareciap/paybacca.com/myaccount2.php on line 79
+[31-Jan-2017 04:50:51 America/New_York] PHP Parse error:  syntax error, unexpected 'as' (T_AS) in /home/pareciap/paybacca.com/myaccount2.php on line 79
+[31-Jan-2017 04:51:26 America/New_York] PHP Parse error:  syntax error, unexpected 'as' (T_AS) in /home/pareciap/paybacca.com/myaccount2.php on line 79
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'retailer_id' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'title' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'image' in /home/pareciap/paybacca.com/myaccount2.php on line 82
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'cashback' in /home/pareciap/paybacca.com/myaccount2.php on line 83
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'retailer_id' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'title' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'image' in /home/pareciap/paybacca.com/myaccount2.php on line 82
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'cashback' in /home/pareciap/paybacca.com/myaccount2.php on line 83
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'retailer_id' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'title' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'image' in /home/pareciap/paybacca.com/myaccount2.php on line 82
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'cashback' in /home/pareciap/paybacca.com/myaccount2.php on line 83
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'retailer_id' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'title' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'image' in /home/pareciap/paybacca.com/myaccount2.php on line 82
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'cashback' in /home/pareciap/paybacca.com/myaccount2.php on line 83
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'retailer_id' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'title' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'image' in /home/pareciap/paybacca.com/myaccount2.php on line 82
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'cashback' in /home/pareciap/paybacca.com/myaccount2.php on line 83
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'retailer_id' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'title' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'image' in /home/pareciap/paybacca.com/myaccount2.php on line 82
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'cashback' in /home/pareciap/paybacca.com/myaccount2.php on line 83
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'retailer_id' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'title' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'image' in /home/pareciap/paybacca.com/myaccount2.php on line 82
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'cashback' in /home/pareciap/paybacca.com/myaccount2.php on line 83
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'retailer_id' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'title' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'image' in /home/pareciap/paybacca.com/myaccount2.php on line 82
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'cashback' in /home/pareciap/paybacca.com/myaccount2.php on line 83
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'retailer_id' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'title' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'image' in /home/pareciap/paybacca.com/myaccount2.php on line 82
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'cashback' in /home/pareciap/paybacca.com/myaccount2.php on line 83
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'retailer_id' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'title' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'image' in /home/pareciap/paybacca.com/myaccount2.php on line 82
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'cashback' in /home/pareciap/paybacca.com/myaccount2.php on line 83
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'retailer_id' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'title' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'image' in /home/pareciap/paybacca.com/myaccount2.php on line 82
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'cashback' in /home/pareciap/paybacca.com/myaccount2.php on line 83
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'retailer_id' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'title' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'image' in /home/pareciap/paybacca.com/myaccount2.php on line 82
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'cashback' in /home/pareciap/paybacca.com/myaccount2.php on line 83
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'retailer_id' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'title' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'image' in /home/pareciap/paybacca.com/myaccount2.php on line 82
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'cashback' in /home/pareciap/paybacca.com/myaccount2.php on line 83
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'retailer_id' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'title' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'image' in /home/pareciap/paybacca.com/myaccount2.php on line 82
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'cashback' in /home/pareciap/paybacca.com/myaccount2.php on line 83
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'retailer_id' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'title' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'image' in /home/pareciap/paybacca.com/myaccount2.php on line 82
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'cashback' in /home/pareciap/paybacca.com/myaccount2.php on line 83
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'retailer_id' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'title' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'image' in /home/pareciap/paybacca.com/myaccount2.php on line 82
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'cashback' in /home/pareciap/paybacca.com/myaccount2.php on line 83
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'retailer_id' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'title' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'image' in /home/pareciap/paybacca.com/myaccount2.php on line 82
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'cashback' in /home/pareciap/paybacca.com/myaccount2.php on line 83
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'retailer_id' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'title' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'image' in /home/pareciap/paybacca.com/myaccount2.php on line 82
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'cashback' in /home/pareciap/paybacca.com/myaccount2.php on line 83
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'retailer_id' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'title' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'image' in /home/pareciap/paybacca.com/myaccount2.php on line 82
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'cashback' in /home/pareciap/paybacca.com/myaccount2.php on line 83
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'retailer_id' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'title' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'image' in /home/pareciap/paybacca.com/myaccount2.php on line 82
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'cashback' in /home/pareciap/paybacca.com/myaccount2.php on line 83
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'retailer_id' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'title' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'image' in /home/pareciap/paybacca.com/myaccount2.php on line 82
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'cashback' in /home/pareciap/paybacca.com/myaccount2.php on line 83
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'retailer_id' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'title' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'image' in /home/pareciap/paybacca.com/myaccount2.php on line 82
+[31-Jan-2017 04:52:02 America/New_York] PHP Warning:  Illegal string offset 'cashback' in /home/pareciap/paybacca.com/myaccount2.php on line 83
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'retailer_id' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'title' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'image' in /home/pareciap/paybacca.com/myaccount2.php on line 82
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'cashback' in /home/pareciap/paybacca.com/myaccount2.php on line 83
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'retailer_id' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'title' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'image' in /home/pareciap/paybacca.com/myaccount2.php on line 82
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'cashback' in /home/pareciap/paybacca.com/myaccount2.php on line 83
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'retailer_id' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'title' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'image' in /home/pareciap/paybacca.com/myaccount2.php on line 82
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'cashback' in /home/pareciap/paybacca.com/myaccount2.php on line 83
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'retailer_id' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'title' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'image' in /home/pareciap/paybacca.com/myaccount2.php on line 82
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'cashback' in /home/pareciap/paybacca.com/myaccount2.php on line 83
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'retailer_id' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'title' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'image' in /home/pareciap/paybacca.com/myaccount2.php on line 82
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'cashback' in /home/pareciap/paybacca.com/myaccount2.php on line 83
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'retailer_id' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'title' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'image' in /home/pareciap/paybacca.com/myaccount2.php on line 82
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'cashback' in /home/pareciap/paybacca.com/myaccount2.php on line 83
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'retailer_id' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'title' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'image' in /home/pareciap/paybacca.com/myaccount2.php on line 82
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'cashback' in /home/pareciap/paybacca.com/myaccount2.php on line 83
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'retailer_id' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'title' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'image' in /home/pareciap/paybacca.com/myaccount2.php on line 82
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'cashback' in /home/pareciap/paybacca.com/myaccount2.php on line 83
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'retailer_id' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'title' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'image' in /home/pareciap/paybacca.com/myaccount2.php on line 82
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'cashback' in /home/pareciap/paybacca.com/myaccount2.php on line 83
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'retailer_id' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'title' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'image' in /home/pareciap/paybacca.com/myaccount2.php on line 82
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'cashback' in /home/pareciap/paybacca.com/myaccount2.php on line 83
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'retailer_id' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'title' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'image' in /home/pareciap/paybacca.com/myaccount2.php on line 82
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'cashback' in /home/pareciap/paybacca.com/myaccount2.php on line 83
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'retailer_id' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'title' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'image' in /home/pareciap/paybacca.com/myaccount2.php on line 82
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'cashback' in /home/pareciap/paybacca.com/myaccount2.php on line 83
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'retailer_id' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'title' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'image' in /home/pareciap/paybacca.com/myaccount2.php on line 82
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'cashback' in /home/pareciap/paybacca.com/myaccount2.php on line 83
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'retailer_id' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'title' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'image' in /home/pareciap/paybacca.com/myaccount2.php on line 82
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'cashback' in /home/pareciap/paybacca.com/myaccount2.php on line 83
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'retailer_id' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'title' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'image' in /home/pareciap/paybacca.com/myaccount2.php on line 82
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'cashback' in /home/pareciap/paybacca.com/myaccount2.php on line 83
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'retailer_id' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'title' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'image' in /home/pareciap/paybacca.com/myaccount2.php on line 82
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'cashback' in /home/pareciap/paybacca.com/myaccount2.php on line 83
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'retailer_id' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'title' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'image' in /home/pareciap/paybacca.com/myaccount2.php on line 82
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'cashback' in /home/pareciap/paybacca.com/myaccount2.php on line 83
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'retailer_id' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'title' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'image' in /home/pareciap/paybacca.com/myaccount2.php on line 82
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'cashback' in /home/pareciap/paybacca.com/myaccount2.php on line 83
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'retailer_id' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'title' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'image' in /home/pareciap/paybacca.com/myaccount2.php on line 82
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'cashback' in /home/pareciap/paybacca.com/myaccount2.php on line 83
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'retailer_id' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'title' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'image' in /home/pareciap/paybacca.com/myaccount2.php on line 82
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'cashback' in /home/pareciap/paybacca.com/myaccount2.php on line 83
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'retailer_id' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'title' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'image' in /home/pareciap/paybacca.com/myaccount2.php on line 82
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'cashback' in /home/pareciap/paybacca.com/myaccount2.php on line 83
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'retailer_id' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'title' in /home/pareciap/paybacca.com/myaccount2.php on line 81
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'image' in /home/pareciap/paybacca.com/myaccount2.php on line 82
+[31-Jan-2017 04:52:18 America/New_York] PHP Warning:  Illegal string offset 'cashback' in /home/pareciap/paybacca.com/myaccount2.php on line 83
+[31-Jan-2017 04:52:31 America/New_York] PHP Parse error:  syntax error, unexpected 'as' (T_AS) in /home/pareciap/paybacca.com/myaccount2.php on line 79
+[31-Jan-2017 05:38:16 America/New_York] PHP Parse error:  syntax error, unexpected '"retailer_id IN ("' (T_CONSTANT_ENCAPSED_STRING) in /home/pareciap/paybacca.com/myaccount2.php on line 86
+[31-Jan-2017 05:38:19 America/New_York] PHP Parse error:  syntax error, unexpected '"retailer_id IN ("' (T_CONSTANT_ENCAPSED_STRING) in /home/pareciap/paybacca.com/myaccount2.php on line 86
+[31-Jan-2017 05:38:39 America/New_York] PHP Parse error:  syntax error, unexpected '"retailer_id IN ("' (T_CONSTANT_ENCAPSED_STRING) in /home/pareciap/paybacca.com/myaccount2.php on line 86
+[31-Jan-2017 05:39:09 America/New_York] PHP Parse error:  syntax error, unexpected '"retailer_id IN (1)"' (T_CONSTANT_ENCAPSED_STRING) in /home/pareciap/paybacca.com/myaccount2.php on line 86
+[31-Jan-2017 05:39:11 America/New_York] PHP Parse error:  syntax error, unexpected '"retailer_id IN (1)"' (T_CONSTANT_ENCAPSED_STRING) in /home/pareciap/paybacca.com/myaccount2.php on line 86
+[31-Jan-2017 05:39:24 America/New_York] PHP Parse error:  syntax error, unexpected '"retailer_id IN ('1')"' (T_CONSTANT_ENCAPSED_STRING) in /home/pareciap/paybacca.com/myaccount2.php on line 86
+[31-Jan-2017 05:39:51 America/New_York] PHP Parse error:  syntax error, unexpected ''retailer_id IN ('' (T_CONSTANT_ENCAPSED_STRING) in /home/pareciap/paybacca.com/myaccount2.php on line 86
+[31-Jan-2017 05:40:45 America/New_York] PHP Parse error:  syntax error, unexpected ''retailer_id IN ('' (T_CONSTANT_ENCAPSED_STRING) in /home/pareciap/paybacca.com/myaccount2.php on line 86
+[31-Jan-2017 05:40:54 America/New_York] PHP Parse error:  syntax error, unexpected ''retailer_id IN ('' (T_CONSTANT_ENCAPSED_STRING) in /home/pareciap/paybacca.com/myaccount2.php on line 86
+[31-Jan-2017 05:41:23 America/New_York] PHP Parse error:  syntax error, unexpected ''retailer_id IN ('' (T_CONSTANT_ENCAPSED_STRING) in /home/pareciap/paybacca.com/myaccount2.php on line 86
+[31-Jan-2017 05:42:14 America/New_York] PHP Parse error:  syntax error, unexpected ''retailer_id IN ('' (T_CONSTANT_ENCAPSED_STRING) in /home/pareciap/paybacca.com/myaccount2.php on line 86
+[31-Jan-2017 05:42:51 America/New_York] PHP Parse error:  syntax error, unexpected ''retailer_id IN ('' (T_CONSTANT_ENCAPSED_STRING) in /home/pareciap/paybacca.com/myaccount2.php on line 86
+[31-Jan-2017 05:42:52 America/New_York] PHP Parse error:  syntax error, unexpected ''retailer_id IN ('' (T_CONSTANT_ENCAPSED_STRING) in /home/pareciap/paybacca.com/myaccount2.php on line 86
+[31-Jan-2017 05:43:19 America/New_York] PHP Parse error:  syntax error, unexpected ''retailer_id IN ('' (T_CONSTANT_ENCAPSED_STRING) in /home/pareciap/paybacca.com/myaccount2.php on line 86
+[31-Jan-2017 05:43:41 America/New_York] PHP Parse error:  syntax error, unexpected '"' in /home/pareciap/paybacca.com/myaccount2.php on line 86
+[31-Jan-2017 06:53:29 America/New_York] PHP Warning:  Invalid argument supplied for foreach() in /home/pareciap/paybacca.com/myaccount2.php on line 111
+[31-Jan-2017 06:54:52 America/New_York] PHP Warning:  Invalid argument supplied for foreach() in /home/pareciap/paybacca.com/myaccount2.php on line 111
+[31-Jan-2017 06:55:05 America/New_York] PHP Warning:  Invalid argument supplied for foreach() in /home/pareciap/paybacca.com/myaccount2.php on line 111
+[31-Jan-2017 13:40:07 America/New_York] PHP Strict Standards:  Only variables should be passed by reference in /home/pareciap/paybacca.com/inc/functions.inc.php on line 994
+[31-Jan-2017 13:41:07 America/New_York] PHP Strict Standards:  Only variables should be passed by reference in /home/pareciap/paybacca.com/inc/functions.inc.php on line 994
+[31-Jan-2017 13:48:42 America/New_York] PHP Strict Standards:  Only variables should be passed by reference in /home/pareciap/paybacca.com/inc/functions.inc.php on line 994
+[31-Jan-2017 14:54:03 America/New_York] PHP Strict Standards:  Only variables should be passed by reference in /home/pareciap/paybacca.com/inc/functions.inc.php on line 994
+[01-Feb-2017 09:06:56 America/New_York] PHP Strict Standards:  Only variables should be passed by reference in /home/pareciap/paybacca.com/inc/functions.inc.php on line 994
+[01-Feb-2017 09:07:51 America/New_York] PHP Strict Standards:  Only variables should be passed by reference in /home/pareciap/paybacca.com/inc/functions.inc.php on line 994
+[01-Feb-2017 09:25:59 America/New_York] PHP Strict Standards:  Only variables should be passed by reference in /home/pareciap/paybacca.com/inc/functions.inc.php on line 994

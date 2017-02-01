@@ -1,0 +1,4 @@
+"Date","Event_Date","Action_Name","ID","Action_Type","Status","Corrected","Sale_Amount","Order_Discount","Commission","Website_ID","Website_Name","Ad_ID","Advertiser_ID","Advertiser_Name","SID","Order_ID","Click_Date"
+"16-Jan-2015 01:33 PDT","11-Jan-2015 00:00 PDT","Sale (Revenue Share)","944692321","sim_sale","closed","No","55.40","0.00","12.28","3201920","Free Bets Extra","3201920","2086568","UNIBET","1","20150116_3201921_40.95","1"
+"16-Jan-2015 04:30 PDT","11-Jan-2015 00:00 PDT","Sale (Revenue Share)","777746777","sim_sale","closed","No","10.95","0.00","2.28","3201920","Free Bets Extra","3201920","3201920","UNIBET","1","20150116_3201921_10.95","1"
+"16-Jan-2015 04:30 PDT","11-Jan-2015 00:00 PDT","Sale (Revenue Share)","564564333","sim_sale","locked","No","40.95","0.00","8.28","3201920","Free Bets Extra","3201923","3201920","UNIBET","1","20150116_3201921_40.95","1"
