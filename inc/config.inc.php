@@ -38,7 +38,7 @@
 			date_default_timezone_set(SITE_TIMEZONE);
 		}
 
-		$lang = $_COOKIE['site_lang'];
+		$lang = isset($_COOKIE['site_lang']) ? $_COOKIE['site_lang'] : 'english';
 
 		if (MULTILINGUAL !=0 && !empty($lang) && file_exists(DOCS_ROOT."/language/".$lang.".inc.php"))
 		{
