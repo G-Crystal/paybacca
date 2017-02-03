@@ -105,6 +105,7 @@
 				<form name="searchfrm" id="searchfrm" class="navbar-form navbar-left" action="<?php echo SITE_URL; ?>search.php" method="get" autocomplete="off">
 					<div class="form-group">
 						<input type="text" id="searchtext" name="searchtext" class="form-control" onKeyPress="ajaxsearch(this.value)" value="<?php echo @$stext; ?>" placeholder="<?php echo CBE_SEARCH_MSG; ?>">
+						<input type="hidden" name="action" value="search" />
 					</div>
 					<button type="submit" class="btn btn-default">Submit</button>
 				</form>
