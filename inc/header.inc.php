@@ -111,10 +111,6 @@
 
 				<ul class="nav navbar-nav navbar-right">
 				<?php if (isLoggedIn()) { ?>
-					<li>
-						<?php echo CBE_BALANCE; ?>: <span class="mbalance"><?php echo GetUserBalance($_SESSION['userid']); ?></span> | 
-						<?php echo CBE_REFERRALS; ?>: <a href="<?php echo SITE_URL; ?>invite.php"><span class="referrals"><?php echo GetReferralsTotal($_SESSION['userid']); ?></span></a>
-					</li>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account <span class="caret"></span></a>
 						<ul class="dropdown-menu">
