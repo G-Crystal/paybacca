@@ -121,7 +121,6 @@
 					</li>
 				<?php }else{ ?>
 					<li><a class="menu" data-toggle="modal" href="#loginModal"><?php echo CBE_LOGIN; ?></a></li>
-					<li><a class="menu" data-toggle="modal" href="#signupModal"><?php echo CBE_SIGNUP; ?></a></li>
 				<?php } ?>
 				</ul>
 			</div><!-- /.navbar-collapse -->
