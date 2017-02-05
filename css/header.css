@@ -90,3 +90,38 @@ form.navbar-form {
 a.navbar-brand {
 	padding-top: 0;
 }
+
+.form-row-control {
+	padding-top: 10px;
+}
+
+.form-row-label {
+	line-height: 25px;
+}
+
+.remember-id-checkbox {
+	margin: 6px 6px 0 0 !important;
+}
+
+.signup-btn {
+    height: 29px;
+    display: inline-flex;
+    font-size: 11px;
+    font-family: Tahoma, Verdana, Arial, sans-serif;
+    font-weight: bold;
+	padding: 5px 15px;
+    border: 1px solid #DBFB9D;
+    background: #94D710;
+    color: #FFFFFF;
+    text-shadow: 1px 1px #FFFFFF;
+    text-decoration: none;
+    -webkit-border-radius: 5px;
+}
+
+.signup-btn:hover {
+	background: #B9FB36;
+}
+
+.form-full-width {
+	width: 100%;
+}

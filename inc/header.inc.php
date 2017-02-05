@@ -120,12 +120,219 @@
 						</ul>
 					</li>
 				<?php }else{ ?>
-					<li><a class="menu" href="<?php echo SITE_URL; ?>login.php"><?php echo CBE_LOGIN; ?></a></li>
+					<li><a class="menu" data-toggle="modal" href="#loginModal"><?php echo CBE_LOGIN; ?></a></li>
 				<?php } ?>
 				</ul>
 			</div><!-- /.navbar-collapse -->
 		</div><!-- /.container-fluid -->
 	</nav>
+
+	<div class="modal fade" id="loginModal" role="dialog">
+		<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title"><?php echo CBE_LOGIN; ?></h4>
+			</div>
+			<div class="modal-body">
+				<?php if (isset($errormsg) || isset($_GET['msg'])) { ?>
+				<div class="row">
+					<div class="col-xs-12 error_msg">
+						<?php if (isset($errormsg) && $errormsg != "") { ?>
+							<?php echo $errormsg; ?>
+						<?php }else{ ?>
+							<?php if ($_GET['msg'] == 1) { echo CBE1_LOGIN_ERR1; } ?>
+							<?php if ($_GET['msg'] == 2) { echo CBE1_LOGIN_ERR2; } ?>
+							<?php if ($_GET['msg'] == 3) { echo CBE1_LOGIN_ERR3; } ?>
+							<?php if ($_GET['msg'] == 4) { echo CBE1_LOGIN_ERR4; } ?>
+							<?php if ($_GET['msg'] == 5) { echo CBE1_LOGIN_ERR1." ".(int)$_SESSION['attems_left']." ".CBE1_LOGIN_ATTEMPTS; } ?>
+							<?php if ($_GET['msg'] == 6) { echo CBE1_LOGIN_ERR6; } ?>
+						<?php } ?>
+					</div>
+				</div>
+				<?php } ?>
+
+				<div class="login_box">
+				<form action="<?php echo SITE_URL; ?>login.php" method="post">
+					<div class="row form-row-control">
+						<div class="col-xs-4 form-row-label"><?php echo CBE1_LOGIN_EMAIL2; ?>:</div>
+						<div class="col-xs-8"><input type="text" class="textbox form-full-width" name="username" value="<?php echo getPostParameter('username'); ?>" size="25" required="required" /></div>
+					</div>
+					<div class="row form-row-control">
+						<div class="col-xs-4 form-row-label"><?php echo CBE1_LOGIN_PASSWORD; ?>:</div>
+						<div class="col-xs-8"><input type="password" class="textbox form-full-width" name="password" value="" size="25" required="required" /></div>
+					</div>
+					<div class="row form-row-control">
+						<div class="col-xs-8 col-xs-offset-4 form-row-label">
+							<input type="checkbox" class="checkboxx remember-id-checkbox" name="rememberme" id="rememberme" value="1" checked="checked" /> <?php echo CBE1_LOGIN_REMEMBER; ?>
+						</div>
+					</div>
+					<div class="row form-row-control justify-content-center">
+						<div class="col-xs-12 text-center">
+							<input type="hidden" name="action" value="login" />
+							<input type="submit" class="submit" name="login" id="login" value="<?php echo CBE1_LOGIN_BUTTON; ?>" />
+							<a class="signup-btn" href="#signupModal"><?php echo CBE_SIGNUP; ?></a>
+						</div>
+					</div>
+					<div class="row form-row-control">
+						<div class="col-xs-8 col-xs-offset-4 form-row-label">
+							<a href="<?php echo SITE_URL; ?>forgot.php"><?php echo CBE1_LOGIN_FORGOT; ?></a>
+							<?php if (ACCOUNT_ACTIVATION == 1) { ?>
+								<p><a href="<?php echo SITE_URL; ?>activation_email.php"><?php echo CBE1_LOGIN_AEMAIL; ?></a></p>
+							<?php } ?>
+						</div>
+					</div>
+					<div class="row form-row-control">
+					<?php if (FACEBOOK_CONNECT == 1 && FACEBOOK_APPID != "" && FACEBOOK_SECRET != "") { ?>
+						<div style="border-bottom: 1px solid #ECF0F1; margin-bottom: 15px;">
+							<div style="font-weight: bold; background: #FFF; color: #CECECE; margin: 0 auto; top: 5px; text-align: center; width: 50px; position: relative;">or</div>
+						</div>
+						<p align="center"><a href="javascript: void(0);" onClick="facebook_login();" class="connect-f"><img src="<?php echo SITE_URL; ?>images/facebook_connect.png" /></a></p>
+					<?php } ?>
+					</div>
+				</form>
+				</div>
+				
+				<!-- <table width="100%" align="center" cellpadding="2" cellspacing="0" border="0">
+
+				<tr>
+
+				<td width="50%" valign="top" align="left">
+
+						<h1><?php echo CBE1_LOGIN_TITLE; ?></h1>
+
+						<?php if (isset($errormsg) || isset($_GET['msg'])) { ?>
+
+							<div style="width: 83%;" class="error_msg">
+
+								<?php if (isset($errormsg) && $errormsg != "") { ?>
+
+									<?php echo $errormsg; ?>
+
+								<?php }else{ ?>
+
+									<?php if ($_GET['msg'] == 1) { echo CBE1_LOGIN_ERR1; } ?>
+
+									<?php if ($_GET['msg'] == 2) { echo CBE1_LOGIN_ERR2; } ?>
+
+									<?php if ($_GET['msg'] == 3) { echo CBE1_LOGIN_ERR3; } ?>
+
+									<?php if ($_GET['msg'] == 4) { echo CBE1_LOGIN_ERR4; } ?>
+
+									<?php if ($_GET['msg'] == 5) { echo CBE1_LOGIN_ERR1." ".(int)$_SESSION['attems_left']." ".CBE1_LOGIN_ATTEMPTS; } ?>
+
+									<?php if ($_GET['msg'] == 6) { echo CBE1_LOGIN_ERR6; } ?>
+
+								<?php } ?>
+
+							</div>
+
+						<?php } ?>
+
+						<div class="login_box">
+						<form action="<?php echo SITE_URL; ?>login.php" method="post">
+						<table width="100%" align="center" cellpadding="3" cellspacing="0" border="0">
+						<tr>
+							<td align="right" valign="middle"><?php echo CBE1_LOGIN_EMAIL2; ?>:</td>
+							<td valign="top"><input type="text" class="textbox" name="username" value="<?php echo getPostParameter('username'); ?>" size="25" required="required" /></td>
+						</tr>
+						<tr>
+							<td align="right" valign="middle"><?php echo CBE1_LOGIN_PASSWORD; ?>:</td>
+							<td valign="top"><input type="password" class="textbox" name="password" value="" size="25" required="required" /></td>
+						</tr>
+						<tr>
+							<td align="right" valign="middle">&nbsp;</td>
+							<td valign="top"><input type="checkbox" class="checkboxx" name="rememberme" id="rememberme" value="1" checked="checked" /> <?php echo CBE1_LOGIN_REMEMBER; ?></td>
+						</tr>
+						<tr>
+							<td valign="top" align="middle">&nbsp;</td>
+							<td align="left" valign="bottom">
+								<input type="hidden" name="action" value="login" />
+								<input type="submit" class="submit" name="login" id="login" value="<?php echo CBE1_LOGIN_BUTTON; ?>" />
+							</td>
+						</tr>
+						<tr>
+						<td valign="top" align="middle">&nbsp;</td>
+							<td align="left" valign="bottom">
+								<a href="<?php echo SITE_URL; ?>forgot.php"><?php echo CBE1_LOGIN_FORGOT; ?></a>
+								<?php if (ACCOUNT_ACTIVATION == 1) { ?>
+									<p><a href="<?php echo SITE_URL; ?>activation_email.php"><?php echo CBE1_LOGIN_AEMAIL; ?></a></p>
+								<?php } ?>
+							</td>
+						</tr>
+						</table>
+					</form>
+					</div>
+
+					<?php if (FACEBOOK_CONNECT == 1 && FACEBOOK_APPID != "" && FACEBOOK_SECRET != "") { ?>
+						<div style="border-bottom: 1px solid #ECF0F1; margin-bottom: 15px;">
+							<div style="font-weight: bold; background: #FFF; color: #CECECE; margin: 0 auto; top: 5px; text-align: center; width: 50px; position: relative;">or</div>
+						</div>
+						<p align="center"><a href="javascript: void(0);" onClick="facebook_login();" class="connect-f"><img src="<?php echo SITE_URL; ?>images/facebook_connect.png" /></a></p>
+					<?php } ?>
+
+				</td>
+
+				<td width="2%" valign="top" align="left">&nbsp;</td>
+
+				<td width="48%" valign="top" align="left">
+					
+					<h1><?php echo CBE1_LOGIN_NMEMBER; ?></h1>
+
+					<p><?php echo CBE1_LOGIN_TEXT2; ?></p>
+
+					<p><b><?php echo str_replace("%site_title%",SITE_TITLE,CBE1_LOGIN_TXT1); ?></b></p>
+
+					<ul id="benefits">
+
+						<li><?php echo CBE1_LOGIN_LI1; ?></li>
+
+						<?php if (SIGNUP_BONUS > 0) { ?><li><?php echo str_replace("%amount%",DisplayMoney(SIGNUP_BONUS),CBE1_LOGIN_LI2); ?></li><?php } ?>
+
+						<?php if (REFER_FRIEND_BONUS > 0) { ?><li><?php echo str_replace("%amount%",DisplayMoney(REFER_FRIEND_BONUS),CBE1_LOGIN_LI3); ?></li><?php } ?>
+
+						<li><?php echo CBE1_LOGIN_LI4; ?></li>
+
+						<li><?php echo CBE1_LOGIN_LI5; ?></li>
+
+						<li><?php echo CBE1_LOGIN_LI6; ?></li>
+
+					</ul>
+
+
+				</td>
+
+				</tr>
+
+				</table> -->
+			</div>
+			<div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+
+		</div>
+	</div>
+
+	<div class="modal fade" id="signupModal" role="dialog">
+		<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title"><?php echo CBE_LOGIN; ?></h4>
+			</div>
+			<div class="modal-body">
+				asdf
+			</div>
+			<div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+
+		</div>
+	</div>
 
 	<!-- <nav class="navbar navbar-default">
 		<div class="container-fluid">
