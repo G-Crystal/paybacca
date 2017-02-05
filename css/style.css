@@ -464,7 +464,7 @@ body {
 
 	background: #FFFFFF;
 
-	padding: 0 15px;
+	padding: 0;
 
 }
 
@@ -490,7 +490,7 @@ body {
 
 	margin: 3px 0 0 0;
 
-	padding-bottom: 25px;
+	padding: 0 15px 25px;
 
 }
 
@@ -2832,9 +2832,9 @@ tr.even:hover {
 
   float: left;
 
-  width: 96%;
+  width: 100%;
 
-  padding: 5px 5px 5px 25px;
+  padding: 5px 5px 5px 5px;
 
   margin: 10px 0;
 
