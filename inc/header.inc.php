@@ -121,6 +121,7 @@
 					</li>
 				<?php }else{ ?>
 					<li><a class="menu" data-toggle="modal" href="#loginModal"><?php echo CBE_LOGIN; ?></a></li>
+					<li><a class="menu" data-toggle="modal" href="#signupModal"><?php echo CBE_SIGNUP; ?></a></li>
 				<?php } ?>
 				</ul>
 			</div><!-- /.navbar-collapse -->
@@ -172,7 +173,7 @@
 						<div class="col-xs-12 text-center">
 							<input type="hidden" name="action" value="login" />
 							<input type="submit" class="submit" name="login" id="login" value="<?php echo CBE1_LOGIN_BUTTON; ?>" />
-							<a class="signup-btn" href="#signupModal"><?php echo CBE_SIGNUP; ?></a>
+							<a class="signup-btn" href="#signupModal" data-toggle="modal"><?php echo CBE_SIGNUP; ?></a>
 						</div>
 					</div>
 					<div class="row form-row-control">
@@ -183,132 +184,20 @@
 							<?php } ?>
 						</div>
 					</div>
-					<div class="row form-row-control">
 					<?php if (FACEBOOK_CONNECT == 1 && FACEBOOK_APPID != "" && FACEBOOK_SECRET != "") { ?>
+					<div class="row form-row-control">
 						<div style="border-bottom: 1px solid #ECF0F1; margin-bottom: 15px;">
 							<div style="font-weight: bold; background: #FFF; color: #CECECE; margin: 0 auto; top: 5px; text-align: center; width: 50px; position: relative;">or</div>
 						</div>
 						<p align="center"><a href="javascript: void(0);" onClick="facebook_login();" class="connect-f"><img src="<?php echo SITE_URL; ?>images/facebook_connect.png" /></a></p>
-					<?php } ?>
 					</div>
+					<?php } ?>
 				</form>
 				</div>
 				
-				<!-- <table width="100%" align="center" cellpadding="2" cellspacing="0" border="0">
-
-				<tr>
-
-				<td width="50%" valign="top" align="left">
-
-						<h1><?php echo CBE1_LOGIN_TITLE; ?></h1>
-
-						<?php if (isset($errormsg) || isset($_GET['msg'])) { ?>
-
-							<div style="width: 83%;" class="error_msg">
-
-								<?php if (isset($errormsg) && $errormsg != "") { ?>
-
-									<?php echo $errormsg; ?>
-
-								<?php }else{ ?>
-
-									<?php if ($_GET['msg'] == 1) { echo CBE1_LOGIN_ERR1; } ?>
-
-									<?php if ($_GET['msg'] == 2) { echo CBE1_LOGIN_ERR2; } ?>
-
-									<?php if ($_GET['msg'] == 3) { echo CBE1_LOGIN_ERR3; } ?>
-
-									<?php if ($_GET['msg'] == 4) { echo CBE1_LOGIN_ERR4; } ?>
-
-									<?php if ($_GET['msg'] == 5) { echo CBE1_LOGIN_ERR1." ".(int)$_SESSION['attems_left']." ".CBE1_LOGIN_ATTEMPTS; } ?>
-
-									<?php if ($_GET['msg'] == 6) { echo CBE1_LOGIN_ERR6; } ?>
-
-								<?php } ?>
-
-							</div>
-
-						<?php } ?>
-
-						<div class="login_box">
-						<form action="<?php echo SITE_URL; ?>login.php" method="post">
-						<table width="100%" align="center" cellpadding="3" cellspacing="0" border="0">
-						<tr>
-							<td align="right" valign="middle"><?php echo CBE1_LOGIN_EMAIL2; ?>:</td>
-							<td valign="top"><input type="text" class="textbox" name="username" value="<?php echo getPostParameter('username'); ?>" size="25" required="required" /></td>
-						</tr>
-						<tr>
-							<td align="right" valign="middle"><?php echo CBE1_LOGIN_PASSWORD; ?>:</td>
-							<td valign="top"><input type="password" class="textbox" name="password" value="" size="25" required="required" /></td>
-						</tr>
-						<tr>
-							<td align="right" valign="middle">&nbsp;</td>
-							<td valign="top"><input type="checkbox" class="checkboxx" name="rememberme" id="rememberme" value="1" checked="checked" /> <?php echo CBE1_LOGIN_REMEMBER; ?></td>
-						</tr>
-						<tr>
-							<td valign="top" align="middle">&nbsp;</td>
-							<td align="left" valign="bottom">
-								<input type="hidden" name="action" value="login" />
-								<input type="submit" class="submit" name="login" id="login" value="<?php echo CBE1_LOGIN_BUTTON; ?>" />
-							</td>
-						</tr>
-						<tr>
-						<td valign="top" align="middle">&nbsp;</td>
-							<td align="left" valign="bottom">
-								<a href="<?php echo SITE_URL; ?>forgot.php"><?php echo CBE1_LOGIN_FORGOT; ?></a>
-								<?php if (ACCOUNT_ACTIVATION == 1) { ?>
-									<p><a href="<?php echo SITE_URL; ?>activation_email.php"><?php echo CBE1_LOGIN_AEMAIL; ?></a></p>
-								<?php } ?>
-							</td>
-						</tr>
-						</table>
-					</form>
-					</div>
-
-					<?php if (FACEBOOK_CONNECT == 1 && FACEBOOK_APPID != "" && FACEBOOK_SECRET != "") { ?>
-						<div style="border-bottom: 1px solid #ECF0F1; margin-bottom: 15px;">
-							<div style="font-weight: bold; background: #FFF; color: #CECECE; margin: 0 auto; top: 5px; text-align: center; width: 50px; position: relative;">or</div>
-						</div>
-						<p align="center"><a href="javascript: void(0);" onClick="facebook_login();" class="connect-f"><img src="<?php echo SITE_URL; ?>images/facebook_connect.png" /></a></p>
-					<?php } ?>
-
-				</td>
-
-				<td width="2%" valign="top" align="left">&nbsp;</td>
-
-				<td width="48%" valign="top" align="left">
-					
-					<h1><?php echo CBE1_LOGIN_NMEMBER; ?></h1>
-
-					<p><?php echo CBE1_LOGIN_TEXT2; ?></p>
-
-					<p><b><?php echo str_replace("%site_title%",SITE_TITLE,CBE1_LOGIN_TXT1); ?></b></p>
-
-					<ul id="benefits">
-
-						<li><?php echo CBE1_LOGIN_LI1; ?></li>
-
-						<?php if (SIGNUP_BONUS > 0) { ?><li><?php echo str_replace("%amount%",DisplayMoney(SIGNUP_BONUS),CBE1_LOGIN_LI2); ?></li><?php } ?>
-
-						<?php if (REFER_FRIEND_BONUS > 0) { ?><li><?php echo str_replace("%amount%",DisplayMoney(REFER_FRIEND_BONUS),CBE1_LOGIN_LI3); ?></li><?php } ?>
-
-						<li><?php echo CBE1_LOGIN_LI4; ?></li>
-
-						<li><?php echo CBE1_LOGIN_LI5; ?></li>
-
-						<li><?php echo CBE1_LOGIN_LI6; ?></li>
-
-					</ul>
-
-
-				</td>
-
-				</tr>
-
-				</table> -->
 			</div>
 			<div class="modal-footer">
-			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 			</div>
 		</div>
 
@@ -321,161 +210,76 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
-				<h4 class="modal-title"><?php echo CBE_LOGIN; ?></h4>
+				<h4 class="modal-title"><?php echo CBE_SIGNUP; ?></h4>
 			</div>
 			<div class="modal-body">
-				asdf
-			</div>
-			<div class="modal-footer">
-			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			</div>
-		</div>
-
-		</div>
-	</div>
-
-	<!-- <nav class="navbar navbar-default">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a href="<?php echo SITE_URL; ?>"><img src="<?php echo SITE_URL; ?>images/logo.png" alt="<?php echo SITE_TITLE; ?>" title="<?php echo SITE_TITLE; ?>" border="0" /></a>
-			</div>
-
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav">
-					<li class="active"><div class="header-links"><a class="menu" href="<?php echo SITE_URL; ?>retailers.php">Stores<span class="sr-only">(current)</span></a></li>
-					<li><div class="header-links"><a class="menu" href="<?php echo SITE_URL; ?>coupons.php">Coupons</a></li>
-				</ul>
-
-				<div id="searchbox" class="searchbox-div">
-					<form name="searchfrm" id="searchfrm" class="navbar-form navbar-left searchfrm" action="<?php echo SITE_URL; ?>search.php" method="get" autocomplete="off">
-						<div id="searchbox" class="form-group frm-div">
-							<input type="text" onKeyPress="ajaxsearch(this.value)" id="searchtext" name="searchtext" class="search_textbox" value="<?php echo @$stext; ?>" placeholder="<?php echo CBE_SEARCH_MSG; ?>" />
-							<input type="hidden" name="action" value="search" />
-							<input type="submit" class="search_button" value="" />
-							<div class="searchhere"></div>
-						</div>
-					</form>				
+				<?php if (isset($allerrors) || isset($_GET['msg'])) { ?>
+				<div class="row">
+					<div class="col-xs-12 error_msg">
+					<?php if (isset($_GET['msg']) && $_GET['msg'] == "exists") { ?>
+						<?php echo CBE1_SIGNUP_ERR10; ?> <a href="<?php echo SITE_URL; ?>forgot.php"><?php echo CBE1_LOGIN_FORGOT; ?></a></font><br/>
+					<?php }elseif (isset($allerrors)) { ?>
+						<?php echo $allerrors; ?>
+					<?php }	?>
+					</div>
 				</div>
-
-				<ul class="nav navbar-nav navbar-right">
-					<li>
-						<div class="header-links pull-right">
-
-							<?php if (MULTILINGUAL == 1 && count($languages) > 0) { ?>
-
-								<div id="languages">
-
-								<?php foreach ($languages as $language_code => $language) { ?>
-
-									<a href="<?php echo SITE_URL; ?>?lang=<?php echo $language; ?>"><img src="<?php echo SITE_URL; ?>images/flags/<?php echo $language_code; ?>.png" alt="<?php echo $language; ?>" border="0" /></a>&nbsp;
-
-								<?php } ?>
-
-								</div>
-
-							<?php } ?>
-
-							<?php if (isLoggedIn()) { ?>
-
-								<?php echo CBE_WELCOME; ?>, <a href="<?php echo SITE_URL; ?>myaccount.php"><span class="member"><?php echo $_SESSION['FirstName']; ?></span></a> | <?php echo CBE_BALANCE; ?>: <span class="mbalance"><?php echo GetUserBalance($_SESSION['userid']); ?></span> | <?php echo CBE_REFERRALS; ?>: <a href="<?php echo SITE_URL; ?>invite.php"><span class="referrals"><?php echo GetReferralsTotal($_SESSION['userid']); ?></span></a> | <a class="logout" href="<?php echo SITE_URL; ?>logout.php"><?php echo CBE_LOGOUT; ?></a>
-
-							<?php }else{ ?>
-
-								<a class="signup" href="<?php echo SITE_URL; ?>signup.php"><?php echo CBE_SIGNUP; ?></a> <a class="menu" href="<?php echo SITE_URL; ?>login.php"><?php echo CBE_LOGIN; ?></a>
-
-							<?php } ?>
-
-						</div>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-
-	<div id="header" class="hidden-xs">
-
-		<div class="movetop"><a href="#" class="scrollup">Top</a></div>
-
-		<div class="pull-left"><a href="<?php echo SITE_URL; ?>"><img src="<?php echo SITE_URL; ?>images/logo.png" alt="<?php echo SITE_TITLE; ?>" title="<?php echo SITE_TITLE; ?>" border="0" /></a></div>
-
-		<div class="header-links pull-right">
-
-			<?php if (MULTILINGUAL == 1 && count($languages) > 0) { ?>
-
-				<div id="languages">
-
-				<?php foreach ($languages as $language_code => $language) { ?>
-
-					<a href="<?php echo SITE_URL; ?>?lang=<?php echo $language; ?>"><img src="<?php echo SITE_URL; ?>images/flags/<?php echo $language_code; ?>.png" alt="<?php echo $language; ?>" border="0" /></a>&nbsp;
-
 				<?php } ?>
 
+				<?php if (FACEBOOK_CONNECT == 1 && FACEBOOK_APPID != "" && FACEBOOK_SECRET != "") { ?>
+				<div class="row">
+					<div class="col-xs-12">
+						<a href="javascript: void(0);" onClick="facebook_login();" class="connect-f"><img src="<?php echo SITE_URL; ?>images/facebook_connect.png" /></a>
+					</div>
 				</div>
+				<?php } ?>
 
-			<?php } ?>
-
-			<?php if (isLoggedIn()) { ?>
-
-				<?php echo CBE_WELCOME; ?>, <a href="<?php echo SITE_URL; ?>myaccount.php"><span class="member"><?php echo $_SESSION['FirstName']; ?></span></a> | <?php echo CBE_BALANCE; ?>: <span class="mbalance"><?php echo GetUserBalance($_SESSION['userid']); ?></span> | <?php echo CBE_REFERRALS; ?>: <a href="<?php echo SITE_URL; ?>invite.php"><span class="referrals"><?php echo GetReferralsTotal($_SESSION['userid']); ?></span></a> | <a class="logout" href="<?php echo SITE_URL; ?>logout.php"><?php echo CBE_LOGOUT; ?></a>
-
-			<?php }else{ ?>
-
-				<a class="signup" href="<?php echo SITE_URL; ?>signup.php"><?php echo CBE_SIGNUP; ?></a> <a class="menu" href="<?php echo SITE_URL; ?>login.php"><?php echo CBE_LOGIN; ?></a>
-
-			<?php } ?>
-
+				<div class="login_box">
+				<form action="<?php echo SITE_URL; ?>login.php" method="post">
+					<div class="row form-row-control">
+						<div class="col-xs-4 form-row-label"><span class="req">* </span><?php echo CBE1_LABEL_FNAME; ?>:</div>
+						<div class="col-xs-8"><input type="text" id="fname" class="textbox" name="fname" value="<?php echo getPostParameter('fname'); ?>" size="27" /></div>
+					</div>
+					<div class="row form-row-control">
+						<div class="col-xs-4 form-row-label"><span class="req">* </span><?php echo CBE1_LABEL_LNAME; ?>:</div>
+						<div class="col-xs-8"><input type="text" id="lname" class="textbox" name="lname" value="<?php echo getPostParameter('lname'); ?>" size="27" /></div>
+					</div>
+					<div class="row form-row-control">
+						<div class="col-xs-4 form-row-label"><span class="req">* </span><?php echo CBE1_LABEL_EMAIL2; ?>:</div>
+						<div class="col-xs-8"><input type="text" id="email" class="textbox" name="email" value="<?php echo getPostParameter('email'); ?>" size="27" /></div>
+					</div>
+					<div class="row form-row-control">
+						<div class="col-xs-4 form-row-label"><span class="req">* </span><?php echo CBE1_LABEL_PWD; ?>:</div>
+						<div class="col-xs-8"><input type="password" id="password" class="textbox" name="password" value="" size="27" /> <span class="note"><?php echo CBE1_SIGNUP_PTEXT; ?></span></div>
+					</div>
+					<div class="row form-row-control">
+						<div class="col-xs-4 form-row-label"><span class="req">* </span><?php echo CBE1_LABEL_CPWD; ?>:</div>
+						<div class="col-xs-8"><input type="password" id="password2" class="textbox" name="password2" value="" size="27" /></div>
+					</div>
+					<div class="row form-row-control">
+						<div class="col-xs-8 col-xs-offset-4 form-row-label">
+						<?php if (isset($_COOKIE['referer_id']) && is_numeric($_COOKIE['referer_id'])) { ?>
+							<input type="hidden" name="referer_id" id="referer_id" value="<?php echo (int)$_COOKIE['referer_id']; ?>" />
+						<?php } ?>
+						</div>
+					</div>
+					<div class="row form-row-control justify-content-center">
+						<div class="col-xs-12 text-center">
+							<input type="hidden" name="action" id="action" value="signup" />
+							<input type="submit" class="submit signup" name="Signup" id="Signup" value="<?php echo CBE1_SIGNUP_BUTTON; ?>" />
+							<a class="signup-btn" href="#loginModal" data-toggle="modal"><?php echo CBE1_LOGIN_BUTTON; ?></a>
+						</div>
+					</div>
+				</form>
+				</div>
+				
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
 		</div>
 
-		<div id="searchbox" class="searchbox-div pull-right hidden-xs">
-
-			<form name="searchfrm" id="searchfrm" class="searchfrm" action="<?php echo SITE_URL; ?>search.php" method="get" autocomplete="off">
-				<div class="frm-div">
-					<input type="text" onKeyPress="ajaxsearch(this.value)" id="searchtext" name="searchtext" class="search_textbox" value="<?php echo @$stext; ?>" placeholder="<?php echo CBE_SEARCH_MSG; ?>" />
-		
-					<input type="hidden" name="action" value="search" />
-		
-					<input type="submit" class="search_button" value="" />
-		
-					<div class="searchhere"></div>
-				</div>
-			</form>
-
 		</div>
-
-		<div class="pull-right header-links">
-			<a class="menu" href="retailers.php">Stores</a>
-			<a class="menu" href="coupons.php">Coupons</a>
-		</div>	
-
 	</div>
-
-	<div id="menu">
-
-		<a href="<?php echo SITE_URL; ?>" class="home"><?php echo CBE_MENU_HOME; ?></a>
-
-		<a href="<?php echo SITE_URL; ?>retailers.php"><?php echo CBE_MENU_STORES; ?></a>
-
-		<a href="<?php echo SITE_URL; ?>coupons.php"><?php echo CBE_MENU_COUPONS; ?></a>
-
-		<a href="<?php echo SITE_URL; ?>featured.php"><?php echo CBE_MENU_FEATURED; ?></a>
-
-		<a href="<?php echo SITE_URL; ?>myaccount.php" rel="nofollow"><?php echo CBE_MENU_ACCOUNT; ?></a>
-
-		<a href="<?php echo SITE_URL; ?>myfavorites.php" rel="nofollow"><?php echo CBE_MENU_FAVORITES; ?></a>
-
-		<a href="<?php echo SITE_URL; ?>howitworks.php"><?php echo CBE_MENU_HOW; ?></a>
-
-		<a href="<?php echo SITE_URL; ?>help.php"><?php echo CBE_MENU_HELP; ?></a>
-
-		<?php echo ShowTopPages(); ?>
-
-	</div> -->
 
 <div id="column_left">
 
