@@ -29,10 +29,8 @@ body {
 #container {
 
 	margin: 0 auto;
-
-	width: 960px;
-
 	text-align: left;
+	overflow: auto;
 
 }
 
@@ -466,7 +464,7 @@ body {
 
 	background: #FFFFFF;
 
-	padding: 8px 0 15px 0;
+	padding: 0 15px;
 
 }
 
@@ -488,7 +486,7 @@ body {
 
 	float: left;
 
-	width: 570px;
+	width: 100%;
 
 	margin: 3px 0 0 0;
 
