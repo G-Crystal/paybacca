@@ -313,13 +313,7 @@
 ?>
 
 
-
 	<h1><?php echo $totitle." ".CBE1_STORES_STORES; ?></h1>
-
-
-
-	<div class="breadcrumbs"><a href="<?php echo SITE_URL; ?>" class="home_link"><?php echo CBE1_BREADCRUMBS_HOME; ?></a> &#155; <a href="<?php echo SITE_URL; ?>retailers.php"><?php echo CBE1_BREADCRUMBS_STORES; ?></a> <?php echo ($totitle != "") ? "&#155; ".$totitle : ""; ?></div>
-
 
 
 	<?php if ($cat_row['description'] != "") { ?>
@@ -329,100 +323,11 @@
 	<?php } ?>
 
 
-
-	<div id="alphabet">
-
-		<ul>
-
-			<li><a href="<?php echo SITE_URL; ?>retailers.php" <?php if (empty($ltr)) echo 'class="active"'; ?>><?php echo CBE1_STORES_ALL; ?></a></li>
-
-			<?php
-
-
-
-				$numLetters = count($alphabet);
-
-				$i = 0;
-
-
-
-				foreach ($alphabet as $letter)
-
-				{
-
-					$i++;
-
-					if ($i == $numLetters) $lilast = ' class="last"'; else $lilast = '';
-
-					if (isset($ltr) && $ltr == $letter) $liclass = ' class="active"'; else $liclass = '';
-
-					echo "<li".$lilast."><a href=\"".SITE_URL."retailers.php?".$view_a."letter=$letter\" $liclass>$letter</a></li>";
-
-				}
-
-			?>
-
-		</ul>
-
-	</div>
-
-
-
 	<?php
-
-
 
 		if ($total > 0) {
 
-
-
 	?>
-
-		<?php if (!isLoggedIn()) { ?><div class="login_msg"><?php echo CBE1_STORES_LOGIN; ?></div><?php } ?>
-
-
-
-		<?php
-
-			// show random featured retailers //
-
-			$fwhere = $where." AND featured='1'";
-
-			$result_featured = smart_mysql_query("SELECT * FROM cashbackengine_retailers WHERE $fwhere ORDER BY RAND() LIMIT ".FEATURED_STORES_LIMIT);
-
-			$total_fetaured = mysql_num_rows($result_featured);
-
-
-
-			if ($total_fetaured > 0) { 
-
-		?>
-
-			<h3 class="featured_title"><?php echo $totitle." ".CBE1_STORES_FEATURED; ?></h3>
-
-			<div id="scrollstores">
-
-			<?php while ($row_featured = mysql_fetch_array($result_featured)) { $cc++; ?>
-
-			<div>
-
-				<div class="imagebox"><a href="<?php echo GetRetailerLink($row_featured['retailer_id'], $row_featured['title']); ?>"><img src="<?php if (!stristr($row_featured['image'], 'http')) echo SITE_URL."img/"; echo $row_featured['image']; ?>" width="<?php echo IMAGE_WIDTH; ?>" height="<?php echo IMAGE_HEIGHT; ?>" alt="<?php echo $row_featured['title']; ?>" title="<?php echo $row_featured['title']; ?>" border="0" /></a></div>
-
-				<?php if ($row_featured['cashback'] != "") { ?><span class="thumbnail-text"><span class="cashback"><?php echo DisplayCashback($row_featured['cashback']); ?></span> <?php echo CBE1_CASHBACK2; ?></span><?php } ?>
-
-			</div>
-
-			<?php } ?>
-
-			</div>
-
-			<div style="clear: both"></div>
-
-		<?php } // end featured retailers ?>
-
-
-
-
 
 		<div class="browse_top">
 
@@ -452,47 +357,7 @@
 
 					</select>
 
-					<?php if (isset($cat_id)) { ?><input type="hidden" name="cat" value="<?php echo $cat_id; ?>" /><?php } ?>
-
-					<?php if ($ltr) { ?><input type="hidden" name="letter" value="<?php echo $ltr; ?>" /><?php } ?>
-
-					<input type="hidden" name="page" value="<?php echo $page; ?>" />
-
-					<input type="hidden" name="view" value="<?php echo $view; ?>" />
-
-					&nbsp;&nbsp;
-
-					<span><?php echo CBE1_RESULTS; ?>:</span>
-
-					<select name="show" id="show" onChange="document.form1.submit()">
-
-						<option value="5" <?php if ($results_per_page == "5") echo "selected"; ?>>5</option>
-
-						<option value="10" <?php if ($results_per_page == "10") echo "selected"; ?>>10</option>
-
-						<option value="25" <?php if ($results_per_page == "25") echo "selected"; ?>>25</option>
-
-						<option value="50" <?php if ($results_per_page == "50") echo "selected"; ?>>50</option>
-
-						<option value="100" <?php if ($results_per_page == "100") echo "selected"; ?>>100</option>
-
-						<option value="111111" <?php if ($results_per_page == "111111") echo "selected"; ?>><?php echo CBE1_RESULTS_ALL; ?></option>
-
-					</select>
-
-					&nbsp;&nbsp;
-
-					<a href="?view=full"><img src="<?php echo SITE_URL; ?>images/list2.png" align="absmiddle" /></a>
-
-					<a href="?view=list"><img src="<?php echo SITE_URL; ?>images/list.png" align="absmiddle" /></a>
-
 				</form>
-
-			</div>
-
-			<div class="results">
-
-				<?php echo CBE1_RESULTS_SHOWING; ?> <?php echo ($from + 1); ?> - <?php echo min($from + $total_on_page, $total); ?> <?php echo CBE1_RESULTS_OF; ?> <?php echo $total; ?>
 
 			</div>
 
@@ -535,19 +400,22 @@
 				<div class="row">
 				<?php while ($row = mysql_fetch_array($result)) { $cc++; ?>
 					<div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-						<div class="">
-							<a class="retailer_title" href="<?php echo GetRetailerLink($row['retailer_id'], $row['title']); ?>"><?php echo $row['title']; ?></a>
+						<div class="store-box-div">
+							<div class="">
+								<a class="retailer_title" href="<?php echo GetRetailerLink($row['retailer_id'], $row['title']); ?>"><?php echo $row['title']; ?></a>
+							</div>
+							<div class="store-icon-div">
+								<a href="<?php echo GetRetailerLink($row['retailer_id'], $row['title']); ?>">
+								<div class="imagebox"><img src="<?php if (!stristr($row['image'], 'http')) echo SITE_URL."img/"; echo $row['image']; ?>" width="<?php echo IMAGE_WIDTH; ?>" height="<?php echo IMAGE_HEIGHT; ?>" alt="<?php echo $row['title']; ?>" title="<?php echo $row['title']; ?>" border="0" /></div>
+								</a>
+							</div>
+							<?php if ($row['cashback'] != "") { ?>
+								<div class="cashback">
+									<?php if ($row['old_cashback'] != "") { ?><span class="old_cashback"><?php echo DisplayCashback($row['old_cashback']); ?></span><?php } ?>
+									<span class="value"><?php echo DisplayCashback($row['cashback']); ?></span> <?php echo CBE1_CASHBACK; ?>
+								</div>
+							<?php } ?>
 						</div>
-						<div class="store-icon-div">
-							<a href="<?php echo GetRetailerLink($row['retailer_id'], $row['title']); ?>">
-							<?php if ($row['featured'] == 1) { ?><span class="featured" alt="<?php echo CBE1_FEATURED_STORE; ?>" title="<?php echo CBE1_FEATURED_STORE; ?>"></span><?php } ?>
-							<div class="imagebox"><img src="<?php if (!stristr($row['image'], 'http')) echo SITE_URL."img/"; echo $row['image']; ?>" width="<?php echo IMAGE_WIDTH; ?>" height="<?php echo IMAGE_HEIGHT; ?>" alt="<?php echo $row['title']; ?>" title="<?php echo $row['title']; ?>" border="0" /></div>
-							</a>
-						</div>
-						<?php if ($row['cashback'] != "") { ?>
-							<?php if ($row['old_cashback'] != "") { ?><span class="old_cashback"><?php echo DisplayCashback($row['old_cashback']); ?></span><?php } ?>
-							<span class="cashback"><span class="value"><?php echo DisplayCashback($row['cashback']); ?></span> <?php echo CBE1_CASHBACK; ?></span>
-						<?php } ?>
 					</div>
 				<?php } ?>
 				</div>

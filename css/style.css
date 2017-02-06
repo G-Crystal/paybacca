@@ -282,8 +282,6 @@ body {
 
 	color: #000;
 
-	background: #F7F7F7;
-
 	border-top: 1px solid #ECF0F1;
 
 	text-align: center;
@@ -2878,9 +2876,9 @@ tr.even:hover {
 
 .cashback {
 
-	color: #F8A51B;
+	color: #669b99;
 
-	font-weight: bold;
+	font-weight: normal;
 
 }
 
@@ -2922,7 +2920,7 @@ tr.even:hover {
 
 	font-size: 19px;
 
-	color: #F8A51B;
+	color: #669b99;
 
 }
 
@@ -2960,11 +2958,11 @@ a.retailer_title  {
 
 	font-family: 'Open Sans Condensed', Times, "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;
 
-	color: #444444;
+	color: #669b99;
 
 	font-size: 21px;
 
-	font-weight: normal;
+	font-weight: bold;
 
 	text-decoration: none;
 
@@ -3102,9 +3100,9 @@ a:hover.retailer_title_s {
 
 	height: 25px;
 
-	background: #F7F7F7;
+	background: transparent;
 
-	border: 1px dotted #F5F5F5;
+	border: 1px dotted #EBEBEB;
 	display: inline-table;
 }
 

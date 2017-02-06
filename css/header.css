@@ -125,3 +125,7 @@ a.navbar-brand {
 .form-full-width {
 	width: 100%;
 }
+
+.trans-bgcolor {
+	background-color: transparent;
+}
