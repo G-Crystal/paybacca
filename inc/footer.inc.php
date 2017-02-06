@@ -2,7 +2,7 @@
 
 </div>
 
-<div id="footer">
+<div id="footer" class="trans-bgcolor">
 
 
 	<?php echo ShowFooterPages(); ?>
