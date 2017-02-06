@@ -498,205 +498,61 @@
 
 		</div>
 
+		<div id="retailers">
+			<?php if (@$_SESSION['view'] == 2) { ?>
+			<div class="row">
+				<div class="col-sm-6 col-xs-12"><?php echo CBE1_STORES_NAME; ?></div>
+				<div class="col-sm-2 col-xs-4"><?php echo CBE1_CASHBACK2; ?></div>
+				<div class="col-sm-2 col-xs-4"><?php echo CBE1_STORES_COUPONS; ?></div>
+				<div class="col-sm-2 col-xs-4"><?php echo CBE1_STORES_VISIT; ?></div>
+			</div>
+			<?php } ?>
 
-
-		<table align="center" width="100%" border="0" cellspacing="0" cellpadding="5">
+			<?php $cc = 0; ?>
 
 			<?php if (@$_SESSION['view'] == 2) { ?>
-
-			<tr>
-
-      			<th width="50%" align="left"><?php echo CBE1_STORES_NAME; ?></a></th>
-
-				<th width="20%" align="center"><?php echo CBE1_CASHBACK2; ?></th>
-
-				<th width="10%" align="center"><?php echo CBE1_STORES_COUPONS; ?></th>
-
-				<th width="20%"align="center"><?php echo CBE1_STORES_VISIT; ?></th>
-
-			</tr>
-
-			<?php } ?>
-
-
-
-			<?php while ($row = mysql_fetch_array($result)) { $cc++; ?>
-
-				
-
-				<?php if (@$_SESSION['view'] == 2) { ?>
-
-				
-
-				<tr class="rets_list <?php if ($row['featured'] == 1) echo "sfeatured"; ?>">
-
-					<td align="left">
-
+				<div class="row">
+				<?php while ($row = mysql_fetch_array($result)) { $cc++; ?>
+					<div class="col-sm-6 col-xs-12">
 						<a class="fav" href="<?php echo SITE_URL; ?>myfavorites.php?act=add&id=<?php echo $row['retailer_id']; ?>" title="<?php echo CBE1_ADD_FAVORITES; ?>"></a>
-
 						<a class="retailer_title_s" href="<?php echo GetRetailerLink($row['retailer_id'], $row['title']); ?>"><?php echo $row['title']; ?></a>
-
-					</td>
-
-					<td align="center"><span class="cashback"><?php echo DisplayCashback($row['cashback']); ?></span></td>
-
-					<td align="center">
-
+					</div>
+					<div class="col-sm-2 col-xs-4">
+						<span class="cashback"><?php echo DisplayCashback($row['cashback']); ?></span>
+					</div>
+					<div class="col-sm-2 col-xs-4">
 					<?php
-
-							$store_coupons_total = GetStoreCouponsTotal($row['retailer_id']);
-
-							echo ($store_coupons_total > 0) ? "<span class='coupons'>".$store_coupons_total."</span>" : "";
-
+						$store_coupons_total = GetStoreCouponsTotal($row['retailer_id']);
+						echo ($store_coupons_total > 0) ? "<span class='coupons'>".$store_coupons_total."</span>" : "";
 					?>
-
-					</td>
-
-					<td align="center"><a class="go2store" href="<?php echo SITE_URL; ?>go2store.php?id=<?php echo $row['retailer_id']; ?>" target="_blank"><?php echo CBE1_GO_TO_STORE; ?></a></td>
-
-				</tr>
-
-				
-
-				<?php }else{ ?>
-
-
-
-				<tr class="<?php if (($cc%2) == 0) echo "even"; else echo "odd"; ?>">
-
-					<td width="<?php echo IMAGE_WIDTH; ?>" align="center" valign="middle">
-
-						<a href="<?php echo GetRetailerLink($row['retailer_id'], $row['title']); ?>">
-
-						<?php if ($row['featured'] == 1) { ?><span class="featured" alt="<?php echo CBE1_FEATURED_STORE; ?>" title="<?php echo CBE1_FEATURED_STORE; ?>"></span><?php } ?>
-
-						<div class="imagebox"><img src="<?php if (!stristr($row['image'], 'http')) echo SITE_URL."img/"; echo $row['image']; ?>" width="<?php echo IMAGE_WIDTH; ?>" height="<?php echo IMAGE_HEIGHT; ?>" alt="<?php echo $row['title']; ?>" title="<?php echo $row['title']; ?>" border="0" /></div>
-
-						</a>
-
-						<?php echo GetStoreRating($row['retailer_id'], $show_start = 1); ?>
-
-					</td>
-
-					<td align="left" valign="top">
-
-						<table width="100%" border="0" cellspacing="0" cellpadding="3">
-
-							<tr>
-
-								<td colspan="2" width="80%" align="left" valign="middle">
-
-									<a class="retailer_title" href="<?php echo GetRetailerLink($row['retailer_id'], $row['title']); ?>"><?php echo $row['title']; ?></a>
-
-								</td>
-
-								<td nowrap="nowrap" width="20%" align="right" valign="middle">
-
-									<a class="coupons" href="<?php echo GetRetailerLink($row['retailer_id'], $row['title']); ?>#coupons" title="<?php echo $row['title']; ?> Coupons"><?php echo GetStoreCouponsTotal($row['retailer_id']); ?></a>
-
-								</td>
-
-							</tr>
-
-							<tr>
-
-								<td colspan="2" valign="top" align="left">
-
-									<div class="retailer_description"><?php echo TruncateText(stripslashes($row['description']), STORES_DESCRIPTION_LIMIT); ?>&nbsp;</div>
-
-									<?php echo GetStoreCountries($row['retailer_id']); ?>
-
-								</td>
-
-								<td valign="top" align="center">
-
-								<?php if ($row['cashback'] != "") { ?>
-
-									<?php if ($row['old_cashback'] != "") { ?><span class="old_cashback"><?php echo DisplayCashback($row['old_cashback']); ?></span><?php } ?>
-
-									<span class="cashback"><span class="value"><?php echo DisplayCashback($row['cashback']); ?></span> <?php echo CBE1_CASHBACK; ?></span>
-
-								<?php } ?>
-
-								</td>
-
-							</tr>
-
-							<tr>
-
-								<td colspan="2" valign="middle" align="left">
-
-									<?php
-
-										$share_title = urlencode($row['title']." ".CBE1_STORE_EARN." ".DisplayCashback($row['cashback'])." ".CBE1_CASHBACK2);
-
-										if (isLoggedIn()) $share_add .= "&ref=".(int)$_SESSION['userid'];
-
-										$share_link = urlencode(GetRetailerLink($row['retailer_id'], $row['title']).$share_add);
-
-									?>
-
-									<a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo $share_link; ?>&t=<?php echo $share_title; ?>" target="_blank" title="<?php echo CBE1_SHARE_FACEBOOK; ?>" rel="nofollow"><img src="<?php echo SITE_URL; ?>images/icon_facebook.png"  alt="<?php echo CBE1_SHARE_FACEBOOK; ?>" align="absmiddle" /></a>&nbsp;
-
-									<a href="https://twitter.com/intent/tweet?text=<?php echo $share_title; ?>&url=<?php echo $share_link; ?>&via=<?php echo SITE_TITLE; ?>" target="_blank" title="<?php echo CBE1_SHARE_TWITTER; ?>" rel="nofollow"><img src="<?php echo SITE_URL; ?>images/icon_twitter.png" alt="<?php echo CBE1_SHARE_TWITTER; ?>" align="absmiddle" /></a>
-
-									&nbsp;&nbsp;
-
-									<?php if ($row['conditions'] != "") { ?>
-
-										<div class="cashbackengine_tooltip">
-
-											<a class="conditions" href="#"><?php echo CBE1_CONDITIONS; ?></a> <span class="tooltip"><?php echo $row['conditions']; ?></span>
-
-										</div>
-
-									<?php } ?>
-
-									<a class="favorites" href="<?php echo SITE_URL; ?>myfavorites.php?act=add&id=<?php echo $row['retailer_id']; ?>"><?php echo CBE1_ADD_FAVORITES; ?></a>
-
-								</td>
-
-								<td valign="middle" align="right">
-
-									<a class="go2store" href="<?php echo SITE_URL; ?>go2store.php?id=<?php echo $row['retailer_id']; ?>" target="_blank"><?php echo CBE1_GO_TO_STORE; ?></a>
-
-								</td>
-
-							</tr>
-
-						</table>
-
-					</td>
-
-				</tr>
-
+					</div>
+					<div class="col-sm-2 col-xs-4">
+						<a class="go2store" href="<?php echo SITE_URL; ?>go2store.php?id=<?php echo $row['retailer_id']; ?>" target="_blank"><?php echo CBE1_GO_TO_STORE; ?></a>
+					</div>
 				<?php } ?>
-
-			
-
+				</div>
+			<?php }else{ ?>
+				<div class="row">
+				<?php while ($row = mysql_fetch_array($result)) { $cc++; ?>
+					<div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+						<div class="">
+							<a class="retailer_title" href="<?php echo GetRetailerLink($row['retailer_id'], $row['title']); ?>"><?php echo $row['title']; ?></a>
+						</div>
+						<div class="store-icon-div">
+							<a href="<?php echo GetRetailerLink($row['retailer_id'], $row['title']); ?>">
+							<?php if ($row['featured'] == 1) { ?><span class="featured" alt="<?php echo CBE1_FEATURED_STORE; ?>" title="<?php echo CBE1_FEATURED_STORE; ?>"></span><?php } ?>
+							<div class="imagebox"><img src="<?php if (!stristr($row['image'], 'http')) echo SITE_URL."img/"; echo $row['image']; ?>" width="<?php echo IMAGE_WIDTH; ?>" height="<?php echo IMAGE_HEIGHT; ?>" alt="<?php echo $row['title']; ?>" title="<?php echo $row['title']; ?>" border="0" /></div>
+							</a>
+						</div>
+						<?php if ($row['cashback'] != "") { ?>
+							<?php if ($row['old_cashback'] != "") { ?><span class="old_cashback"><?php echo DisplayCashback($row['old_cashback']); ?></span><?php } ?>
+							<span class="cashback"><span class="value"><?php echo DisplayCashback($row['cashback']); ?></span> <?php echo CBE1_CASHBACK; ?></span>
+						<?php } ?>
+					</div>
+				<?php } ?>
+				</div>
 			<?php } ?>
-
-			</table>
-
-
-
-			<?php
-
-					$params = "";
-
-					if (isset($cat_id) && $cat_id > 0) { $params = "cat=$cat_id&"; }
-
-					if (isset($ltr) && $ltr != "") { $params .= "letter=$ltr&"; }
-
-
-
-					echo ShowPagination("retailers",$results_per_page,"retailers.php?".$params."column=$rrorder&order=$rorder&show=$results_per_page&go=1&","WHERE ".$where);
-
-			?>
-
-
-
-	<?php }else{ ?>
+		</div>
 
 		<p align="center"><?php echo CBE1_STORES_NO; ?></p>
 

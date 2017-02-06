@@ -26,6 +26,8 @@
 
 	<link rel="stylesheet" type="text/css" href="<?php echo SITE_URL; ?>css/header.css" />
 
+	<link rel="stylesheet" type="text/css" href="<?php echo SITE_URL; ?>css/main.css" />
+
 	<script
 		src="https://code.jquery.com/jquery-3.1.1.min.js"
 		integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="

@@ -490,7 +490,7 @@ body {
 
 	margin: 3px 0 0 0;
 
-	padding: 0 15px 25px;
+	padding: 0 0 25px;
 
 }
 
@@ -2924,8 +2924,6 @@ tr.even:hover {
 
 	color: #F8A51B;
 
-	display: block;
-
 }
 
 
@@ -3096,7 +3094,7 @@ a:hover.retailer_title_s {
 
 .browse_top {
 
-	width: 98%;
+	width: 100%;
 
 	padding: 8px 4px;
 
@@ -3107,7 +3105,7 @@ a:hover.retailer_title_s {
 	background: #F7F7F7;
 
 	border: 1px dotted #F5F5F5;
-
+	display: inline-table;
 }
 
 
@@ -3578,7 +3576,7 @@ div.pagination a.text:hover {color: #000000;}
 
 	padding: 7px 5px;
 
-	width: 98%;
+	width: 100%;
 
 	margin: 5px 0;
 
@@ -4594,7 +4592,7 @@ a:hover.coupon_title {
 
 .rating {
 
-	display: inline-block;
+	display: block;
 
 	position: relative;
 
