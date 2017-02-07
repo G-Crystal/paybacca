@@ -422,9 +422,12 @@
 			<?php } ?>
 		</div>
 
-		<p align="center"><?php echo CBE1_STORES_NO; ?></p>
+		<!--<p align="center"><?php echo CBE1_STORES_NO; ?></p>-->
+		<div class="col-xs-12 text-center">
+			<a class="common-btn browse-more-div" href="#">Browse more</a>
+		</div>
 
-		<div class="sline"></div>
+		<!--<div class="sline"></div>-->
 
 	<?php } ?>
 

@@ -1,3 +1,18 @@
+
+.common-btn {
+    height: 29px;
+    display: inline-flex;
+    font-size: 11px;
+    font-family: Tahoma, Verdana, Arial, sans-serif;
+    font-weight: bold;
+	padding: 5px 15px;
+	color: #878787;
+	border: 1px solid #EEEEEE;
+    background: transparent;
+    text-decoration: none;
+    -webkit-border-radius: 5px;
+}
+
 .store-icon-div {
     display: inline-block;
     width: 100%;
@@ -11,6 +26,10 @@
 
 .store-icon-img {
     width: 100%;
+}
+
+.browse-more-div {
+    margin: 10px 0;
 }
 
 @media screen and (min-width: 320px) {
