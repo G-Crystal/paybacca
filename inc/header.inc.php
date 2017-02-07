@@ -18,7 +18,9 @@
 
 	<meta name="robots" content="index, follow" />
 
-	<link href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" />
+
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Comfortaa" />
 
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 
