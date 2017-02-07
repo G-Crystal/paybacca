@@ -124,7 +124,7 @@
 
 			//if (!isLoggedIn())
 
-				echo $content['text'];
+				// echo $content['text'];
 
 		?>
 
