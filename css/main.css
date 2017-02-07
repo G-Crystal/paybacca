@@ -1,10 +1,45 @@
 .store-icon-div {
     display: inline-block;
+    width: 100%;
 }
 
 .store-box-div {
     text-align: center;
-    min-height: 150px;
     border: 1px solid #ebebeb;
-    margin: 15px;
+    margin: 10px;
 }
+
+.store-icon-img {
+    width: 100%;
+}
+
+@media screen and (min-width: 320px) {
+    .store-box-div {
+        min-height: 160px;
+    }
+}
+
+@media screen and (min-width: 480px) {
+    .store-box-div {
+        min-height: 220px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .store-box-div {
+        min-height: 180px;
+    }
+}
+
+@media (min-width: 768px) and (orientation: landscape) {
+    .store-box-div {
+        min-height: 190px;
+    }
+}
+
+@media (min-width: 992px) {
+    .store-box-div {
+        min-height: 170px;
+    }
+}
+

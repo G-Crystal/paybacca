@@ -406,7 +406,7 @@
 							</div>
 							<div class="store-icon-div">
 								<a href="<?php echo GetRetailerLink($row['retailer_id'], $row['title']); ?>">
-								<div class="imagebox"><img src="<?php if (!stristr($row['image'], 'http')) echo SITE_URL."img/"; echo $row['image']; ?>" width="<?php echo IMAGE_WIDTH; ?>" height="<?php echo IMAGE_HEIGHT; ?>" alt="<?php echo $row['title']; ?>" title="<?php echo $row['title']; ?>" border="0" /></div>
+									<div class="imagebox"><img src="<?php if (!stristr($row['image'], 'http')) echo SITE_URL."img/"; echo $row['image']; ?>" class="store-icon-img" alt="<?php echo $row['title']; ?>" title="<?php echo $row['title']; ?>" border="0" /></div>
 								</a>
 							</div>
 							<?php if ($row['cashback'] != "") { ?>
