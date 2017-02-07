@@ -229,7 +229,7 @@ body {
 
 	font-size: 11px;
 
-	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	/*font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;*/
 
 	background: url('../images/search_bg.png') repeat-x center top;
 
@@ -397,7 +397,7 @@ body {
 
 	padding: 8px 25px 8px 25px;
 
-	font-family: 'Open Sans Condensed', Times, Arial, Verdana, sans-serif;
+	/*font-family: 'Open Sans Condensed', Times, Arial, Verdana, sans-serif;*/
 
 	font-size: 16px;
 
@@ -551,7 +551,7 @@ body {
 
 	font-size: 19px;
 
-	font-family: 'Open Sans Condensed', Times, "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;
+	/*font-family: 'Open Sans Condensed', Times, "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;*/
 
 	font-weight: normal;
 
@@ -801,7 +801,7 @@ a {
 
 a:hover {
 
-	color: #94CA29;
+	color: #669b99;
 
 	text-decoration: none;
 
@@ -811,7 +811,7 @@ a:hover {
 
 a.start_link {
 
-	font-family: 'Open Sans Condensed', Times, "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;
+	/*font-family: 'Open Sans Condensed', Times, "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;*/
 
 	font-size: 30px;
 
@@ -1007,7 +1007,7 @@ a.go2store {
 
 	float: right;
 
-	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	/*font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;*/
 
 	color: #FFFFFF;
 
@@ -1087,7 +1087,7 @@ a:hover.go2store_b {
 
 a.go2store_large {
 
-	font-family: 'Open Sans Condensed', Times, "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;
+	/*font-family: 'Open Sans Condensed', Times, "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;*/
 
 	color: #FFFFFF;
 
@@ -1175,7 +1175,7 @@ a:hover.go2store_large {
 
 	font-size: 11px;
 
-	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;; 
+	/*font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;; */
 
 	border: 1px solid #D8D8D8; 
 
@@ -2091,7 +2091,7 @@ li {
 
 p {
 
-	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	/*font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;*/
 
 	font-size: 11px;
 
@@ -2105,7 +2105,7 @@ p {
 
 h1 {
 
-	font-family: 'Open Sans Condensed', Times, "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;
+	/*font-family: 'Open Sans Condensed', Times, "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;*/
 
 	font-size: 22px;
 
@@ -2123,7 +2123,7 @@ h1 {
 
 h2 {
 
-	font-family: 'Open Sans Condensed', Times, "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;
+	/*font-family: 'Open Sans Condensed', Times, "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;*/
 
 	font-size: 25px;
 
@@ -2141,7 +2141,7 @@ h2 {
 
 h3 {
 
-    font-family: 'Open Sans Condensed', Times, "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, sans-serif;
+    /*font-family: 'Open Sans Condensed', Times, "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, sans-serif;*/
 
 	font-size: 22px;
 
@@ -2159,7 +2159,7 @@ h3 {
 
 h4 {
 
-	font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;
+	/*font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;*/
 
 	font-size: 17px;
 
@@ -2189,7 +2189,7 @@ h4 {
 
 .stitle {
 
-	font-family: 'Open Sans Condensed', Times, "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;
+	/*font-family: 'Open Sans Condensed', Times, "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;*/
 
 	font-size: 22px;
 
@@ -2289,7 +2289,7 @@ h4 {
 
 	padding: 5px 15px;
 
-	font-family: 'Open Sans Condensed', Times, Arial, Verdana, sans-serif;
+	/*font-family: 'Open Sans Condensed', Times, Arial, Verdana, sans-serif;*/
 
     border-radius: 5px;
 
@@ -3200,7 +3200,7 @@ input.textbox, input.textbox2  {
 
 	background: #FFFFFF url('../images/input_bg.png') repeat-x center top;
 
-	font-family: Verdana, Arial, Helvetica, sans-serif;
+	/*font-family: Verdana, Arial, Helvetica, sans-serif;*/
 
 	font-size: 11px;
 
@@ -3238,7 +3238,7 @@ select {
 
 	background: #FFFFFF url('../images/input_bg.png') repeat-x center top;
 
-	font-family: Verdana, Arial, Helvetica, sans-serif;
+	/*font-family: Verdana, Arial, Helvetica, sans-serif;*/
 
 	font-size: 11px;
 
@@ -3278,7 +3278,7 @@ textarea {
 
 	font-size: 11px;
 
-	font-family: Verdana, Arial, Helvetica, sans-serif;
+	/*font-family: Verdana, Arial, Helvetica, sans-serif;*/
 
 	overflow: auto;
 
@@ -3292,15 +3292,15 @@ textarea {
 
 	padding: 5px 10px 5px 10px;
 
-	border: 1px solid #94D710;
+	border: 1px solid #EEEEEE;
 
-	background: #94D710;
+	background: transparent;
 
-	color: #FFFFFF;
+	color: #878787;
 
 	font-size: 11px;
 
-	font-family: Tahoma, Verdana, Arial, sans-serif;
+	/*font-family: Tahoma, Verdana, Arial, sans-serif;*/
 
 	font-weight: bold;
 
@@ -3310,7 +3310,7 @@ textarea {
 
 	overflow: visible;
 
-	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	/*text-shadow: 0 1px 1px rgba(0,0,0,.3);*/
 
 	-webkit-border-radius: .5em; 
 
@@ -3330,11 +3330,9 @@ textarea {
 
 .submit:hover {
 
-	border: 1px solid #B9FB36;
+	background: #FEFEFE;
 
-	background: #B9FB36;
-
-	color: #FFFFFF;
+	color: #669b99;
 
 }
 
@@ -3342,7 +3340,7 @@ textarea {
 
 .submit.signup {
 
-	font-family: 'Open Sans Condensed', Times, "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;
+	/*font-family: 'Open Sans Condensed', Times, "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;*/
 
 	font-size: 19px;
 
@@ -3368,7 +3366,7 @@ textarea {
 
 	font-size: 11px;
 
-	font-family: Tahoma, Verdana, Arial, sans-serif;
+	/*font-family: Tahoma, Verdana, Arial, sans-serif;*/
 
 	font-weight: bold;
 
@@ -3416,7 +3414,7 @@ textarea {
 
 a.button {
 
-	font-family: 'Open Sans Condensed', Times, "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;
+	/*font-family: 'Open Sans Condensed', Times, "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;*/
 
 	font-size: 18px;
 
@@ -3682,7 +3680,7 @@ div.pagination a.text:hover {color: #000000;}
 
 	border: 0px;
 
-	font-family: Verdana, Arial, Helvetica, sans-serif;
+	/*font-family: Verdana, Arial, Helvetica, sans-serif;*/
 
 	font-size: 11px;
 
@@ -3720,7 +3718,7 @@ div.pagination a.text:hover {color: #000000;}
 
 	border: 1px solid #F0EBE4;
 
-	font-family: Verdana, Arial, Helvetica, sans-serif;
+	/*font-family: Verdana, Arial, Helvetica, sans-serif;*/
 
 	font-size: 11px;
 
@@ -3972,7 +3970,7 @@ div.pagination a.text:hover {color: #000000;}
 
 .news_title {
 
-	font-family: 'Open Sans Condensed', Times, "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;
+	/*font-family: 'Open Sans Condensed', Times, "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;*/
 
 	color: #444444;
 
@@ -4544,7 +4542,7 @@ div.pagination a.text:hover {color: #000000;}
 
 a.coupon_title  {
 
-	font-family: 'Open Sans Condensed', Times, "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;
+	/*font-family: 'Open Sans Condensed', Times, "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;*/
 
 	color: #94CA29;
 
@@ -4810,7 +4808,7 @@ a:hover.coupon_title {
 
 	font-size: 25px;
 
-	font-family: 'Open Sans Condensed', Times, "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;
+	/*font-family: 'Open Sans Condensed', Times, "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;*/
 
 }
 

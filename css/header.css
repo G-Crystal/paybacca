@@ -10,8 +10,8 @@
 	font-weight: bold;
 	padding: 4px 8px;
 	margin-right: 3px;
-	background: #94D710;
-	border: 1px solid #94D710;
+	background: #FFFFFF;
+	border: 1px solid #EEEEEE;
 	text-decoration: none;
 	border-radius: 5px;
     -moz-border-radius: 5px;
@@ -20,16 +20,16 @@
 
 .header-links a:hover.signup {
 	color: #FFFFFF;
-	background: #9EEF07;
-	border: 1px solid #9EEF07;
+	background: #EBEBEB;
+	border: 1px solid #EEEEEE;
 }
 
 .header-links a.menu {
-	color: #79D21A;
+	color: #878787;
 	font-weight: bold;
 	padding: 4px 8px;
 	background: #FFFFFF;
-	border: 1px solid #EEE;
+	border: 1px solid #EEEEEE;
 	text-decoration: none;
 	border-radius: 5px;
     -moz-border-radius: 5px;
@@ -38,7 +38,7 @@
 }
 
 .header-links a:hover.menu {
-	color: #79D21A;
+	color: #878787;
 	background: #EDFCCF;
 }
 
@@ -108,20 +108,19 @@ a.navbar-brand {
     height: 29px;
     display: inline-flex;
     font-size: 11px;
-    /*font-family: Tahoma, Verdana, Arial, sans-serif;*/
 	font-family: Comfortaa;
     font-weight: bold;
 	padding: 5px 15px;
     border: 1px solid #DBFB9D;
-    background: #94D710;
-    color: #FFFFFF;
+    background: transparent;
+    color: #669b99;
     text-shadow: 1px 1px #FFFFFF;
     text-decoration: none;
     -webkit-border-radius: 5px;
 }
 
 .signup-btn:hover {
-	background: #B9FB36;
+	background: transparent;
 }
 
 .form-full-width {
