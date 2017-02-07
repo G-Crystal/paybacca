@@ -412,7 +412,8 @@
 							<?php if ($row['cashback'] != "") { ?>
 								<div class="cashback">
 									<?php if ($row['old_cashback'] != "") { ?><span class="old_cashback"><?php echo DisplayCashback($row['old_cashback']); ?></span><?php } ?>
-									<span class="value"><?php echo DisplayCashback($row['cashback']); ?></span> <?php echo CBE1_CASHBACK; ?>
+									<span class="value"><?php echo DisplayCashback($row['cashback']); ?></span>
+									<span class="value">Cash Back</span>
 								</div>
 							<?php } ?>
 						</div>
