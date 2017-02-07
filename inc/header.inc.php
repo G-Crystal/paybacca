@@ -176,7 +176,7 @@
 						<div class="col-xs-12 text-center">
 							<input type="hidden" name="action" value="login" />
 							<input type="submit" class="submit" name="login" id="login" value="<?php echo CBE1_LOGIN_BUTTON; ?>" />
-							<a class="signup-btn" href="#signupModal" data-toggle="modal"><?php echo CBE_SIGNUP; ?></a>
+							<a class="common-btn" href="#signupModal" data-toggle="modal"><?php echo CBE_SIGNUP; ?></a>
 						</div>
 					</div>
 					<div class="row form-row-control">
@@ -269,7 +269,7 @@
 						<div class="col-xs-12 text-center">
 							<input type="hidden" name="action" id="action" value="signup" />
 							<input type="submit" class="submit signup" name="Signup" id="Signup" value="<?php echo CBE1_SIGNUP_BUTTON; ?>" />
-							<a class="signup-btn" href="#loginModal" data-toggle="modal"><?php echo CBE1_LOGIN_BUTTON; ?></a>
+							<a class="common-btn" href="#loginModal" data-toggle="modal"><?php echo CBE1_LOGIN_BUTTON; ?></a>
 						</div>
 					</div>
 				</form>

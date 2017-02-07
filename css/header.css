@@ -58,7 +58,8 @@
 
 .searchbox-div .search_textbox {
 	font-size: 11px;
-	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	/*font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;*/
+	font-family: Comfortaa;
 	background: url('../images/search_bg.png') repeat-x center top;
 	height: 23px;
 	width: 230px;
@@ -107,7 +108,8 @@ a.navbar-brand {
     height: 29px;
     display: inline-flex;
     font-size: 11px;
-    font-family: Tahoma, Verdana, Arial, sans-serif;
+    /*font-family: Tahoma, Verdana, Arial, sans-serif;*/
+	font-family: Comfortaa;
     font-weight: bold;
 	padding: 5px 15px;
     border: 1px solid #DBFB9D;

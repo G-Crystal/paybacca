@@ -2874,6 +2874,7 @@ tr.even:hover {
 	color: #669b99;
 
 	font-weight: normal;
+	font-size: 18px;
 
 }
 
@@ -2911,9 +2912,9 @@ tr.even:hover {
 
 .cashback .value {
 
-	font-family: 'Open Sans Condensed', Times, Arial, Helvetica, sans-serif;
+	/*font-family: 'Open Sans Condensed', Times, Arial, Helvetica, sans-serif;*/
 
-	font-size: 19px;
+	font-size: 18px;
 
 	color: #669b99;
 
@@ -2923,7 +2924,7 @@ tr.even:hover {
 
 .bcashback {
 
-	font-family: 'Open Sans Condensed', Times, Arial, Helvetica, sans-serif;
+	/*font-family: 'Open Sans Condensed', Times, Arial, Helvetica, sans-serif;*/
 
 	color: #94D710;
 
@@ -2951,11 +2952,11 @@ tr.even:hover {
 
 a.retailer_title  {
 
-	font-family: 'Open Sans Condensed', Times, "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;
+	/*font-family: 'Open Sans Condensed', Times, "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;*/
 
 	color: #669b99;
 
-	font-size: 21px;
+	font-size: 18px;
 
 	font-weight: bold;
 
