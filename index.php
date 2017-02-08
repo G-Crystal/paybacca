@@ -157,13 +157,26 @@
 			<div class="featured_stores">
 
 			<?php while ($row_featured = mysql_fetch_array($result_featured)) { ?>
-
-				<div class="imagebox">
-					<a href="<?php echo GetRetailerLink($row_featured['retailer_id'], $row_featured['title']); ?>"><img src="<?php if (!stristr($row_featured['image'], 'http')) echo SITE_URL."img/"; echo $row_featured['image']; ?>" width="<?php echo IMAGE_WIDTH; ?>" height="<?php echo IMAGE_HEIGHT; ?>" alt="<?php echo $row_featured['title']; ?>" title="<?php echo $row_featured['title']; ?>" border="0" /></a>
+				<div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+					<div class="store-box-div">
+						<div class="">
+							<a class="retailer_title" href="<?php echo GetRetailerLink($row_featured['retailer_id'], $row_featured['title']); ?>"><?php echo $row_featured['title']; ?></a>
+						</div>
+						<div class="store-icon-div">
+							<a href="<?php echo GetRetailerLink($row_featured['retailer_id'], $row_featured['title']); ?>">
+								<div class="imagebox"><img src="<?php if (!stristr($row_featured['image'], 'http')) echo SITE_URL."img/"; echo $row_featured['image']; ?>" class="store-icon-img" alt="<?php echo $row_featured['title']; ?>" title="<?php echo $row_featured['title']; ?>" border="0" /></div>
+							</a>
+						</div>
+						<?php if ($row_featured['cashback'] != "") { ?>
+							<div class="cashback">
+								<?php if ($row_featured['old_cashback'] != "") { ?><span class="old_cashback"><?php echo DisplayCashback($row_featured['old_cashback']); ?></span><?php } ?>
+								<span class="value"><?php echo DisplayCashback($row_featured['cashback']); ?></span>
+								<span class="value">Cash Back</span>
+							</div>
+						<?php } ?>
+					</div>
 				</div>
-
 			<?php } ?>
-
 			</div>
 
 		<?php
