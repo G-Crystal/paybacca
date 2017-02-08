@@ -62,7 +62,8 @@
 
 	<script type="text/javascript" src="<?php echo SITE_URL; ?>js/easySlider1.7.js"></script>
 
-	<script type="text/javascript" src="<?php echo SITE_URL; ?>js/jquery.tools.tabs.min.js"></script>
+	<!--<script type="text/javascript" src="<?php echo SITE_URL; ?>js/jquery.tools.tabs.min.js"></script>-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 	<link rel="shortcut icon" href="<?php echo SITE_URL; ?>favicon.ico" />
 
