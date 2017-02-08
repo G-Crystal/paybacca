@@ -16,6 +16,11 @@
     cursor: pointer;
 }
 
+.btn-default:hover {
+    color: #669b99;
+    background-color: transparent;
+}
+
 .store-icon-div {
     display: inline-block;
     width: 100%;
