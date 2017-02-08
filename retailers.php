@@ -330,37 +330,22 @@
 	?>
 
 		<div class="browse_top">
-
 			<div class="sortby">
-
 				<form action="" id="form1" name="form1" method="get">
-
+					<input type="hidden" id="page_num" value="<?php echo $page?>";
 					<span><?php echo CBE1_SORT_BY; ?>:</span>
-
 					<select name="column" id="column" onChange="document.form1.submit()">
-
 						<option value="title" <?php if ($_GET['column'] == "title") echo "selected"; ?>><?php echo CBE1_SORT_NAME; ?></option>
-
 						<option value="visits" <?php if ($_GET['column'] == "visits") echo "selected"; ?>><?php echo CBE1_SORT_POPULARITY; ?></option>
-
 						<option value="added" <?php if ($_GET['column'] == "added") echo "selected"; ?>><?php echo CBE1_SORT_DATE; ?></option>
-
 						<option value="cashback" <?php if ($_GET['column'] == "cashback") echo "selected"; ?>><?php echo CBE1_SORT_CASHBACK; ?></option>
-
 					</select>
-
 					<select name="order" id="order" onChange="document.form1.submit()">
-
 						<option value="asc" <?php if ($_GET['order'] == "asc") echo "selected"; ?>><?php echo CBE1_SORT_ASC; ?></option>
-
 						<option value="desc" <?php if ($_GET['order'] == "desc") echo "selected"; ?>><?php echo CBE1_SORT_DESC; ?></option>
-
 					</select>
-
 				</form>
-
 			</div>
-
 		</div>
 
 		<div id="retailers">
@@ -373,11 +358,9 @@
 			</div>
 			<?php } ?>
 
-			<?php $cc = 0; ?>
-
 			<?php if (@$_SESSION['view'] == 2) { ?>
 				<div class="row">
-				<?php while ($row = mysql_fetch_array($result)) { $cc++; ?>
+				<?php while ($row = mysql_fetch_array($result)) { ?>
 					<div class="col-sm-6 col-xs-12">
 						<a class="fav" href="<?php echo SITE_URL; ?>myfavorites.php?act=add&id=<?php echo $row['retailer_id']; ?>" title="<?php echo CBE1_ADD_FAVORITES; ?>"></a>
 						<a class="retailer_title_s" href="<?php echo GetRetailerLink($row['retailer_id'], $row['title']); ?>"><?php echo $row['title']; ?></a>
@@ -397,8 +380,8 @@
 				<?php } ?>
 				</div>
 			<?php }else{ ?>
-				<div class="row">
-				<?php while ($row = mysql_fetch_array($result)) { $cc++; ?>
+				<div class="row" id="retailer_shop_box">
+				<?php while ($row = mysql_fetch_array($result)) { ?>
 					<div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
 						<div class="store-box-div">
 							<div class="">
@@ -425,13 +408,36 @@
 
 		<!--<p align="center"><?php echo CBE1_STORES_NO; ?></p>-->
 		<div class="col-xs-12 text-center">
-			<a class="common-btn browse-more-div" href="#">Browse more</a>
+			<a id="browse_more_btn" class="common-btn browse-more-div">Browse more</a>
 		</div>
 
 		<!--<div class="sline"></div>-->
 
 	<?php } ?>
 
+<script language="javascript">
+$(document).ready(function(){
+	$("#browse_more_btn").click(function(){
+		item = {
+			"show" : '<?php echo $results_per_page?>',
+			"column" : '<?php echo $rrorder?>',
+			"order": '<?php echo $rorder?>',
+			"page": parseInt($("#page_num").val()) + 1
+		}
 
+		$.ajax({
+			type : 'GET',
+			url  : 'server/retailers.php',
+			data : {params:JSON.stringify(item)}
+		})
+		.done(function(data) {
+			console.log(data);
+			$("#retailer_shop_box").append(data);
+			$("#page_num").val(parseInt($("#page_num").val()) + 1);
+		});
+	});
+
+});
+</script>
 
 <?php require_once ("inc/footer.inc.php"); ?>
