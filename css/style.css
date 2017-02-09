@@ -1467,9 +1467,9 @@ div.cashbackengine_tooltip {
 
 	text-align: center;
 
-	color: #FFFFFF;
+	color: #808080;
 
-	background-color: #C1C0BF;
+	background-color: #F0F0F0;
 
 	padding: 6px 0;
 
@@ -1481,7 +1481,7 @@ div.cashbackengine_tooltip {
 
 .login_msg a {
 
-	color: #FFFFFF;
+	color: #669b99;
 
 	text-decoration: underline;
 
@@ -3624,9 +3624,9 @@ div.pagination a.text:hover {color: #000000;}
 
 .search_box {
 
-	width: 98%;
+	width: 100%;
 
-	background: #F7F7F7; 
+	background: transparent; 
 
 	margin: 5px 0;
 
@@ -3635,7 +3635,8 @@ div.pagination a.text:hover {color: #000000;}
 	text-align: center;
 
 	white-space: nowrap;
-
+	
+	border: 1px dotted #EBEBEB;
 }
 
 
