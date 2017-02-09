@@ -398,6 +398,10 @@
 									<span class="value"><?php echo DisplayCashback($row['cashback']); ?></span>
 									<span class="value">Cash Back</span>
 								</div>
+							<?php } else { ?>
+								<div class="cashback">
+									<a class="common-btn" href="<?php echo GetRetailerLink($row['retailer_id'], $row['title']); ?>">See More</a>
+								</div>
 							<?php } ?>
 						</div>
 					</div>
@@ -408,7 +412,7 @@
 
 		<!--<p align="center"><?php echo CBE1_STORES_NO; ?></p>-->
 		<div class="col-xs-12 text-center">
-			<a id="browse_more_btn" class="common-btn browse-more-div">Browse more</a>
+			<a id="browse_more_btn" class="common-btn browse-more-div">Browse More</a>
 		</div>
 
 		<!--<div class="sline"></div>-->
