@@ -110,7 +110,7 @@ define ('CBE1_SHARE_GOOGLE', 'Share on Google+');
 
 /* HOME */
 
-define ('CBE1_HOME_FEATURED_STORES', 'FEATURED STORES');
+define ('CBE1_HOME_FEATURED_STORES', 'Featured Stores');
 
 define ('CBE1_HOME_TOP_COUPONS', 'TODAY\'S TOP COUPONS');
 
