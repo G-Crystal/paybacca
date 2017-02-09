@@ -348,22 +348,6 @@
 	</div>
 
 
-			<?php
-
-					$params = "";
-
-					if (isset($_GET['order'])) { $params .= "column=$rrorder&order=$rorder&"; }
-
-					if (isset($_GET['show'])) { $params .= "show=$results_per_page&go=1&"; }
-
-			
-
-					echo ShowPagination("retailers",$results_per_page,"search.php?action=search&searchtext=$stext&".$params, "WHERE $where");
-
-			?>
-
-
-
 	<?php }else{ ?>
 
 		
