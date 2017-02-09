@@ -313,7 +313,7 @@
 ?>
 
 
-	<h1><?php echo $totitle." ".CBE1_STORES_STORES; ?></h1>
+	<h3 class="brd"><?php echo $totitle." ".CBE1_STORES_STORES; ?></h3>
 
 
 	<?php if ($cat_row['description'] != "") { ?>
