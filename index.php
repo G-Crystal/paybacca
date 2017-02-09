@@ -173,6 +173,10 @@
 								<span class="value"><?php echo DisplayCashback($row_featured['cashback']); ?></span>
 								<span class="value">Cash Back</span>
 							</div>
+						<?php } else { ?>
+							<div class="cashback">
+								<a class="common-btn" href="<?php echo GetRetailerLink($row_featured['retailer_id'], $row_featured['title']); ?>">See More</a>
+							</div>
 						<?php } ?>
 					</div>
 				</div>
@@ -212,6 +216,10 @@
 								<?php if ($n_row['old_cashback'] != "") { ?><span class="old_cashback"><?php echo DisplayCashback($n_row['old_cashback']); ?></span><?php } ?>
 								<span class="value"><?php echo DisplayCashback($n_row['cashback']); ?></span>
 								<span class="value">Cash Back</span>
+							</div>
+						<?php } else { ?>
+							<div class="cashback">
+								<a class="common-btn" href="<?php echo GetRetailerLink($n_row['retailer_id'], $n_row['title']); ?>">See More</a>
 							</div>
 						<?php } ?>
 					</div>
