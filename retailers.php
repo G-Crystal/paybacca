@@ -332,7 +332,7 @@
 		<div class="browse_top">
 			<div class="sortby">
 				<form action="" id="form1" name="form1" method="get">
-					<input type="hidden" id="page_num" value="<?php echo $page?>";
+					<input type="hidden" id="page_num" value="<?php echo $page; ?>">
 					<span><?php echo CBE1_SORT_BY; ?>:</span>
 					<select name="column" id="column" onChange="document.form1.submit()">
 						<option value="title" <?php if ($_GET['column'] == "title") echo "selected"; ?>><?php echo CBE1_SORT_NAME; ?></option>
