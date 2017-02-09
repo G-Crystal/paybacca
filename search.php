@@ -22,173 +22,71 @@
 
 	require_once("inc/pagination.inc.php");
 
-
-
-
-
 	if (isset($_GET['show']) && is_numeric($_GET['show']) && $_GET['show'] > 0 && in_array($_GET['show'], $results_on_page))
-
 	{
-
 		$results_per_page = (int)$_GET['show'];
-
 		if (!(isset($_GET['go']) && $_GET['go'] == 1))$page = 1;
-
 	}
-
 	else
-
 	{
-
 		$results_per_page = RESULTS_PER_PAGE;
-
 	}
-
-
 
 	$cc = 0;
 
-
-
 	////////////////// filter  //////////////////////
-
 		if (isset($_GET['column']) && $_GET['column'] != "")
-
 		{
-
 			switch ($_GET['column'])
-
 			{
-
 				case "title": $rrorder = "title"; break;
-
 				case "added": $rrorder = "added"; break;
-
 				case "visits": $rrorder = "visits"; break;
-
 				case "cashback": $rrorder = "cashback"; break;
-
 				default: $rrorder = "title"; break;
-
 			}
-
 		}
-
 		else
-
 		{
-
 			$rrorder = "title";
-
 		}
-
-
 
 		if (isset($_GET['order']) && $_GET['order'] != "")
-
 		{
-
 			switch ($_GET['order'])
-
 			{
-
 				case "asc": $rorder = "asc"; break;
-
 				case "desc": $rorder = "desc"; break;
-
 				default: $rorder = "asc"; break;
-
 			}
-
 		}
-
 		else
-
 		{
-
 			$rorder = "asc";
-
 		}
 
 	//////////////////////////////////////////////////
-
-
 
 	if (isset($_GET['page']) && is_numeric($_GET['page']) && $_GET['page'] > 0) { $page = (int)$_GET['page']; } else { $page = 1; }
 
 	$from = ($page-1)*$results_per_page;
 
-
-
 	$where = "";
 
-
-
 	if (isset($_GET['action']) && $_GET['action'] == "search")
-
 	{
-
 		$stext = mysql_real_escape_string(getGetParameter('searchtext'));
-
 		$stext = substr(trim($stext), 0, 100);
-
-
-
-		// country filter //
-
-		if (isset($_GET['country']) && is_numeric($_GET['country']) && $_GET['country'] > 0)
-
-		{
-
-			$country_id = (int)$_GET['country'];
-
-
-
-			unset($retailers_per_country);
-
-			$retailers_per_country = array();
-
-			$retailers_per_country[] = "111111111111111111111";
-
-
-
-			$sql_retailers_per_country = smart_mysql_query("SELECT retailer_id FROM cashbackengine_retailer_to_country WHERE country_id='$country_id'");
-
-			while ($row_retailers_per_country = mysql_fetch_array($sql_retailers_per_country))
-
-			{
-
-				$retailers_per_country[] = $row_retailers_per_country['retailer_id'];
-
-			}
-
-
-
-			$where .= "retailer_id IN (".implode(",",$retailers_per_country).") AND";
-
-		}
-
-
 
 		$where .= " (title LIKE '%".$stext."%' OR description LIKE '%".$stext."%' OR website LIKE '%".$stext."%' OR tags LIKE '%".$stext."%') AND (end_date='0000-00-00 00:00:00' OR end_date > NOW()) AND status='active'";
 
-
-
 		if ($rrorder == "cashback")
-
 			$query = "SELECT * FROM cashbackengine_retailers WHERE $where ORDER BY ABS(cashback) $rorder LIMIT $from, $results_per_page";
-
 		else
-
 			$query = "SELECT * FROM cashbackengine_retailers WHERE $where ORDER BY featured DESC, $rrorder $rorder LIMIT $from, $results_per_page";
 
-
-
 		$total_result = smart_mysql_query("SELECT * FROM cashbackengine_retailers WHERE $where ORDER BY title ASC");
-
 	}
-
-
 
 	$total = mysql_num_rows($total_result);
 
@@ -196,97 +94,19 @@
 
 	$total_on_page = mysql_num_rows($result);
 
-
-
-
-
 	///////////////  Page config  ///////////////
-
 	$PAGE_TITLE = CBE1_SEARCH_TITLE." ".$stext;
 
-
-
 	require_once ("inc/header.inc.php");
-
-
-
 ?>
-
-
 
 	<h3 class="brd"><?php echo CBE1_SEARCH_TITLE; ?> '<?php echo $stext; ?>'</h3>
 
-
-
-	<div class="search_box">
-
-	<form action="" method="get">
-
-		<span><?php echo CBE1_SEARCH_TITLE2; ?></span>: 
-
-		<input type="text" id="searchtext" name="searchtext" class="textbox" value="<?php echo $stext; ?>" size="40" />
-
-		<select id="country" name="country" class="textbox2" style="width: 150px;">
-
-		<option value=""><?php echo CBE1_LABEL_COUNTRY_SELECT; ?></option>
-
-		<?php
-
-			$sql_country = "SELECT * FROM cashbackengine_countries WHERE status='active' ORDER BY sort_order, name";
-
-			$rs_country = smart_mysql_query($sql_country);
-
-			$total_country = mysql_num_rows($rs_country);
-
-
-
-			if ($total_country > 0)
-
-			{
-
-				while ($row_country = mysql_fetch_array($rs_country))
-
-				{
-
-					if ($country_id == $row_country['country_id'])
-
-						echo "<option value='".$row_country['country_id']."' selected>".$row_country['name']."</option>\n";
-
-					else
-
-						echo "<option value='".$row_country['country_id']."'>".$row_country['name']."</option>\n";
-
-				}
-
-			}
-
-		?>
-
-		</select>
-
-		<input type="hidden" name="action" value="search" />
-
-		<input type="submit" class="submit" value="<?php echo CBE1_SEARCH_BUTTON; ?>" />
-
-	</form>
-
-	</div>
-
-
-
 	<?php
-
-
-
 		if ($total > 0) {
-
 	?>
 
-
-
 	<?php if (!isLoggedIn()) { ?><div class="login_msg"><?php echo CBE1_STORES_LOGIN; ?></div><?php } ?>
-
-
 
 	<div class="browse_top">
 
@@ -350,16 +170,11 @@
 
 	<?php }else{ ?>
 
-		
-
 		<p align="center"><?php echo CBE1_SEARCH_NO; ?></p>
 
 		<p align="center"><a class="goback" href="#" onclick="history.go(-1);return false;"><?php echo CBE1_GO_BACK; ?></a></p>
 
-
-
 	<?php } ?>
-
 
 
 	<script language="javascript">
@@ -370,7 +185,6 @@
 				"column" : '<?php echo $rrorder?>',
 				"order": '<?php echo $rorder?>',
 				"page": parseInt($("#page").val()) + 1,
-				"country": parseInt($("#country").val()),
 				"action": "search",
 				"searchtext": $("#searchtext").val()
 			}

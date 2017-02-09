@@ -62,26 +62,6 @@
 		$stext = mysql_real_escape_string($params->searchtext);
 		$stext = substr(trim($stext), 0, 100);
 
-		// country filter //
-		if (isset($params->country) && is_numeric($params->country) && $params->country > 0)
-		{
-			$country_id = (int)$params->country;
-
-			unset($retailers_per_country);
-
-			$retailers_per_country = array();
-			$retailers_per_country[] = "111111111111111111111";
-
-			$sql_retailers_per_country = smart_mysql_query("SELECT retailer_id FROM cashbackengine_retailer_to_country WHERE country_id='$country_id'");
-
-			while ($row_retailers_per_country = mysql_fetch_array($sql_retailers_per_country))
-			{
-				$retailers_per_country[] = $row_retailers_per_country['retailer_id'];
-			}
-
-			$where .= "retailer_id IN (".implode(",",$retailers_per_country).") AND";echo $where.'###<br>';
-		}
-
 		$where .= " (title LIKE '%".$stext."%' OR description LIKE '%".$stext."%' OR website LIKE '%".$stext."%' OR tags LIKE '%".$stext."%') AND (end_date='0000-00-00 00:00:00' OR end_date > NOW()) AND status='active'";
 
 		if ($rrorder == "cashback")
