@@ -224,9 +224,9 @@
 
 		<span><?php echo CBE1_SEARCH_TITLE2; ?></span>: 
 
-		<input type="text" name="searchtext" class="textbox" value="<?php echo $stext; ?>" size="40" />
+		<input type="text" id="searchtext" name="searchtext" class="textbox" value="<?php echo $stext; ?>" size="40" />
 
-		<select name="country" class="textbox2" id="country" style="width: 150px;">
+		<select id="country" name="country" class="textbox2" style="width: 150px;">
 
 		<option value=""><?php echo CBE1_LABEL_COUNTRY_SELECT; ?></option>
 
@@ -293,7 +293,6 @@
 		<div class="sortby">
 
 			<form action="<?php echo SITE_URL; ?>search.php?<?php echo $_SERVER['QUERY_STRING']; ?>" id="form1" name="form1" method="get">
-				<input type="hidden" id="page_num" value="<?php echo $page?>">
 				<span><?php echo CBE1_SORT_BY; ?>:</span>
 				<select name="column" id="column" onChange="document.form1.submit()">
 					<option value="title" <?php if ($_GET['column'] == "title") echo "selected"; ?>><?php echo CBE1_SEARCH_NAME; ?></option>
@@ -307,8 +306,8 @@
 					<option value="desc" <?php if ($_GET['order'] == "desc") echo "selected"; ?>><?php echo CBE1_SORT_DESC; ?></option>
 				</select>
 
-				<input type="hidden" name="searchtext" value="<?php echo $stext; ?>" />
-				<input type="hidden" name="page" value="<?php echo $page; ?>" />
+				<input type="hidden" id="searchtext" name="searchtext" value="<?php echo $stext; ?>" />
+				<input type="hidden" id="page" name="page" value="<?php echo $page; ?>" />
 				<input type="hidden" name="action" value="search" />
 			</form>
 
@@ -344,127 +343,9 @@
 	<?php } ?>
 	</div>
 
-
-			<!--<table align="center" width="100%" border="0" cellspacing="0" cellpadding="5">
-
-			<?php while ($row = mysql_fetch_array($result)) { $cc++; ?>
-
-
-
-				<tr class="<?php if (($cc%2) == 0) echo "even"; else echo "odd"; ?>">
-
-					<td width="<?php echo IMAGE_WIDTH; ?>" align="center" valign="middle">
-
-						<a href="<?php echo GetRetailerLink($row['retailer_id'], $row['title']); ?>">
-
-						<?php if ($row['featured'] == 1) { ?><span class="featured" alt="<?php echo CBE1_FEATURED_STORE; ?>" title="<?php echo CBE1_FEATURED_STORE; ?>"></span><?php } ?>
-
-						<div class="imagebox"><img src="<?php if (!stristr($row['image'], 'http')) echo SITE_URL."img/"; echo $row['image']; ?>" width="<?php echo IMAGE_WIDTH; ?>" height="<?php echo IMAGE_HEIGHT; ?>" alt="" border="0" /></div>
-
-						</a>
-
-						<?php echo GetStoreRating($row['retailer_id'], $show_start = 1); ?>
-
-					</td>
-
-					<td align="left" valign="top">
-
-						<table width="100%" border="0" cellspacing="0" cellpadding="3">
-
-							<tr>
-
-								<td colspan="2" width="80%" align="left" valign="top">
-
-									<a class="retailer_title" href="<?php echo GetRetailerLink($row['retailer_id'], $row['title']); ?>"><?php echo $row['title']; ?></a>
-
-								</td>
-
-								<td nowrap="nowrap" width="20%" align="right" valign="middle">
-
-									<a class="coupons" href="<?php echo GetRetailerLink($row['retailer_id'], $row['title']); ?>#coupons" title="<?php echo $row['title']; ?> Coupons"><?php echo GetStoreCouponsTotal($row['retailer_id']); ?></a>
-
-								</td>
-
-							</tr>
-
-							<tr>
-
-								<td colspan="2" valign="top" align="left">
-
-									<div class="retailer_description"><?php echo TruncateText(stripslashes($row['description']), STORES_DESCRIPTION_LIMIT); ?>&nbsp;</div>
-
-									<?php echo GetStoreCountries($row['retailer_id']); ?>
-
-								</td>
-
-								<td valign="top" align="center">
-
-								<?php if ($row['cashback'] != "") { ?>
-
-									<?php if ($row['old_cashback'] != "") { ?><span class="old_cashback"><?php echo DisplayCashback($row['old_cashback']); ?></span><?php } ?>
-
-									<span class="cashback"><span class="value"><?php echo DisplayCashback($row['cashback']); ?></span> <?php echo CBE1_CASHBACK; ?></span>
-
-								<?php } ?>
-
-								</td>
-
-							</tr>
-
-							<tr>
-
-								<td colspan="2" valign="middle" align="left">
-
-									<?php
-
-										$share_title = urlencode($row['title']." ".CBE1_STORE_EARN." ".DisplayCashback($row['cashback'])." ".CBE1_CASHBACK2);
-
-										if (isLoggedIn()) $share_add .= "&ref=".(int)$_SESSION['userid'];
-
-										$share_link = urlencode(GetRetailerLink($row['retailer_id'], $row['title']).$share_add);
-
-									?>
-
-									<a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo $share_link; ?>&t=<?php echo $share_title; ?>" target="_blank" title="<?php echo CBE1_SHARE_FACEBOOK; ?>" rel="nofollow"><img src="<?php echo SITE_URL; ?>images/icon_facebook.png"  alt="<?php echo CBE1_SHARE_FACEBOOK; ?>" align="absmiddle" /></a>&nbsp;
-
-									<a href="https://twitter.com/intent/tweet?text=<?php echo $share_title; ?>&url=<?php echo $share_link; ?>&via=<?php echo SITE_TITLE; ?>" target="_blank" title="<?php echo CBE1_SHARE_TWITTER; ?>" rel="nofollow"><img src="<?php echo SITE_URL; ?>images/icon_twitter.png" alt="<?php echo CBE1_SHARE_TWITTER; ?>" align="absmiddle" /></a>
-
-									&nbsp;&nbsp;
-
-									<?php if ($row['conditions'] != "") { ?>
-
-										<div class="cashbackengine_tooltip">
-
-											<a class="conditions" href="#"><?php echo CBE1_CONDITIONS; ?></a> <span class="tooltip"><?php echo $row['conditions']; ?></span>
-
-										</div>
-
-									<?php } ?>
-
-									<a class="favorites" href="<?php echo SITE_URL; ?>myfavorites.php?act=add&id=<?php echo $row['retailer_id']; ?>"><?php echo CBE1_ADD_FAVORITES; ?></a>
-
-								</td>
-
-								<td valign="middle" align="right">
-
-									<a class="go2store" href="<?php echo SITE_URL; ?>go2store.php?id=<?php echo $row['retailer_id']; ?>" target="_blank"><?php echo CBE1_GO_TO_STORE; ?></a>
-
-								</td>
-
-							</tr>
-
-						</table>
-
-					</td>
-
-				</tr>
-
-
-
-			<?php } ?>
-
-			</table>-->
-
+	<div class="col-xs-12 text-center">
+		<a id="browse_more_btn" class="common-btn browse-more-div">Browse More</a>
+	</div>
 
 
 			<?php
@@ -496,6 +377,34 @@
 	<?php } ?>
 
 
+
+	<script language="javascript">
+	$(document).ready(function(){
+		$("#browse_more_btn").click(function(){
+			item = {
+				"show" : '<?php echo $results_per_page?>',
+				"column" : '<?php echo $rrorder?>',
+				"order": '<?php echo $rorder?>',
+				"page": parseInt($("#page").val()) + 1,
+				"country": parseInt($("#country").val()),
+				"action": "search",
+				"searchtext": $("#searchtext").val()
+			}
+
+			$.ajax({
+				type : 'GET',
+				url  : 'server/search.php',
+				data : {params:JSON.stringify(item)}
+			})
+			.done(function(data) {
+				console.log(data);
+				$("#search_result_box").append(data);
+				$("#page").val(parseInt($("#page").val()) + 1);
+			});
+		});
+
+	});
+	</script>
 
 
 
