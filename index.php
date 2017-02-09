@@ -177,7 +177,51 @@
 					</div>
 				</div>
 			<?php } ?>
+
 			</div>
+
+			<?php if (NEW_STORES_LIMIT > 0) { ?>
+			<div style="clear: both;"></div>
+
+			<h3 class="brd"><?php echo CBE1_BOX_NEW; ?></h3>
+
+			<?php
+				$n_query = "SELECT * FROM cashbackengine_retailers WHERE (end_date='0000-00-00 00:00:00' OR end_date > NOW()) AND status='active' ORDER BY added DESC LIMIT ".NEW_STORES_LIMIT;
+				$n_result = smart_mysql_query($n_query);
+				$n_total = mysql_num_rows($n_result);
+
+				if ($n_total > 0)
+				{
+			?>
+
+			<div class="new_stores">
+
+			<?php while ($n_row = mysql_fetch_array($n_result)) { ?>
+				<div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+					<div class="store-box-div">
+						<div class="">
+							<a class="retailer_title" href="<?php echo GetRetailerLink($n_row['retailer_id'], $n_row['title']); ?>"><?php echo $n_row['title']; ?></a>
+						</div>
+						<div class="store-icon-div">
+							<a href="<?php echo GetRetailerLink($n_row['retailer_id'], $n_row['title']); ?>">
+								<div class="imagebox"><img src="<?php if (!stristr($n_row['image'], 'http')) echo SITE_URL."img/"; echo $n_row['image']; ?>" class="store-icon-img" alt="<?php echo $n_row['title']; ?>" title="<?php echo $n_row['title']; ?>" border="0" /></div>
+							</a>
+						</div>
+						<?php if ($n_row['cashback'] != "") { ?>
+							<div class="cashback">
+								<?php if ($n_row['old_cashback'] != "") { ?><span class="old_cashback"><?php echo DisplayCashback($n_row['old_cashback']); ?></span><?php } ?>
+								<span class="value"><?php echo DisplayCashback($n_row['cashback']); ?></span>
+								<span class="value">Cash Back</span>
+							</div>
+						<?php } ?>
+					</div>
+				</div>
+			<?php } ?>
+			<?php } ?>
+			<?php } ?>
+			
+			</div>
+
 
 		<?php
 
