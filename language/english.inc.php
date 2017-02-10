@@ -56,7 +56,7 @@ define ('CBE_LOGOUT', 'Logout');
 
 /* GENERAL */
 
-define ('CBE1_CASHBACK', 'cashback');
+define ('CBE1_CASHBACK', 'Cash Back');
 
 define ('CBE1_CASHBACK2', 'Cashback');
 
