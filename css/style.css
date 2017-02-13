@@ -2533,6 +2533,7 @@ a:hover .imgs {
 .imagebox img {
 	border: 1px solid #F5F5F5;
 	box-shadow: 1px 2px 4px rgba(200, 200, 200, 0.5);
+	max-width: 200px;
 }
 
 .imagebox img:hover {
@@ -4351,11 +4352,7 @@ div.pagination a.text:hover {color: #000000;}
 
     -webkit-border-radius: 7px;
 
-	position: absolute;
-
-	top: 10px;
-
-	right: 5px;
+	display: inline-block;
 
 }
 
@@ -4528,6 +4525,8 @@ a.coupon_title  {
 	font-weight: normal;
 
 	text-decoration: none;
+
+	word-wrap: break-word;
 
 }
 

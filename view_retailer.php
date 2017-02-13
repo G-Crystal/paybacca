@@ -280,18 +280,14 @@
 
 	<?php
 
-
-
 		if ($total > 0) {
-
-
 
 	?>
 
 			<h3 class="brd"><?php echo $ptitle; ?></h3>
 
 			<div class="row">
-				<div class="col-lg-2 col-md-3 col-sm-4 col-sm-offset-0 col-xs-8 col-xs-offset-2">
+				<div class="col-xs-8 col-xs-offset-2">
 					<div class="store-box-div">
 						<div class="">
 							<a class="retailer_title" href="<?php echo GetRetailerLink($row['retailer_id'], $row['title']); ?>"><?php echo $row['title']; ?></a>
@@ -309,32 +305,11 @@
 						<div>
 							<a class="coupons" href="#coupons"><?php echo GetStoreCouponsTotal($row['retailer_id']); ?> <?php echo CBE1_STORE_COUPONS1; ?></a><br/><br/>
 						</div>
-					</div>
-				</div>
-				<div class="col-lg-10 col-md-9 col-sm-8 col-xs-12">
-					<div class="info_box">
-						<div class="retailer_description"><?php echo TruncateText(stripslashes($row['description']), STORES_DESCRIPTION_LIMIT, $more_link = 1); ?>&nbsp;</div>
-						<?php echo GetStoreCountries($row['retailer_id']); ?>
-						<?php if ($row['tags'] != "") { ?><p><span class="tags"><?php echo $row['tags']; ?></span></p><?php } ?>
-						<?php if ($row['conditions'] != "") { ?>
-							<p><b><?php echo CBE1_CONDITIONS; ?></b><br/>
-							<span class="conditions_desc"><?php echo $row['conditions']; ?></span>
+						<div class="info_links" style="width: 100%; padding-top: 15px;">
+							<p align="center">
+							<a class="common-btn" href="<?php echo SITE_URL; ?>go2store.php?id=<?php echo $row['retailer_id']; ?>">Get Cash Back</a>
 							</p>
-						<?php } ?>
-					</div>					
-
-					<div style="clear: both"></div>
-
-					<div class="info_links" style="width: 100%; padding-top: 15px;">
-						<a class="favorites" href="<?php echo SITE_URL; ?>myfavorites.php?act=add&id=<?php echo $row['retailer_id']; ?>"><?php echo CBE1_ADD_FAVORITES; ?></a>
-						<a class="report" href="<?php echo SITE_URL; ?>report_retailer.php?id=<?php echo $row['retailer_id']; ?>"><?php echo CBE1_REPORT; ?></a>
-						<?php if (SUBMIT_COUPONS == 1) { ?>
-							<a class="submit_coupon" href="<?php echo SITE_URL; ?>submit_coupon.php?id=<?php echo $row['retailer_id']; ?>"><?php echo CBE1_STORE_COUPONS2; ?></a>
-						<?php } ?>
-						<br/><br/>
-						<p align="center">
-						<a class="common-btn" href="<?php echo SITE_URL; ?>go2store.php?id=<?php echo $row['retailer_id']; ?>">Get Cash Back</a>
-						</p>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -368,8 +343,10 @@
 					<?php if ($row_coupons['description'] != "") { ?><div class="coupon_description"><?php echo TruncateText($row_coupons['description'], COUPONS_DESCRIPTION_LIMIT, $more_link = 1); ?>&nbsp;</div><?php } ?>
 					<?php if ($row_coupons['code'] != "") { ?>
 					<div class="col-xs-12">
-						<span class="coupon_code"><?php echo (HIDE_COUPONS == 0 || isLoggedIn()) ? $row_coupons['code'] : CBE1_COUPONS_CODE_HIDDEN; ?></span>
 						<span class="coupon_note"><?php echo CBE1_COUPONS_MSG; ?></span><br/><br/>
+					</div>
+					<div class="col-xs-12 text-right">
+						<span class="coupon_code"><?php echo (HIDE_COUPONS == 0 || isLoggedIn()) ? $row_coupons['code'] : CBE1_COUPONS_CODE_HIDDEN; ?></span>
 					</div>
 					<?php } ?>
 					<?php if ($row_coupons['end_date'] != "0000-00-00 00:00:00") { ?>
@@ -389,6 +366,20 @@
 
 		<?php } // end store coupons // ?>
 
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="info_box">
+						<div class="retailer_description"><?php echo TruncateText(stripslashes($row['description']), STORES_DESCRIPTION_LIMIT, $more_link = 1); ?>&nbsp;</div>
+						<?php echo GetStoreCountries($row['retailer_id']); ?>
+						<?php if ($row['tags'] != "") { ?><p><span class="tags"><?php echo $row['tags']; ?></span></p><?php } ?>
+						<?php if ($row['conditions'] != "") { ?>
+							<p><b><?php echo CBE1_CONDITIONS; ?></b><br/>
+							<span class="conditions_desc"><?php echo $row['conditions']; ?></span>
+							</p>
+						<?php } ?>
+					</div>					
+				</div>
+			</div>
 
 
 		<?php
@@ -423,44 +414,6 @@
 
 		<?php } // end expired coupons // ?>
 
-		<?php
-			// start related retailers //
-			$query_like = "SELECT * FROM cashbackengine_retailers WHERE retailer_id<>'$retailer_id' AND (end_date='0000-00-00 00:00:00' OR end_date > NOW()) AND status='active' ORDER BY RAND() LIMIT 5";
-
-			$result_like = smart_mysql_query($query_like);
-			$total_like = mysql_num_rows($result_like);
-
-			if ($total_like > 0)
-			{
-		?>
-
-			<div style="clear: both"></div><br/>
-
-			<h3><?php echo CBE1_STORE_LIKE; ?></h3>
-
-			<div class="row">
-			<?php while ($row_like = mysql_fetch_array($result_like)) { ?>
-				<div class="">
-					<?php echo $row_like['title']; ?><br/>
-					<a href="<?php echo GetRetailerLink($row_like['retailer_id'], $row_like['title']); ?>"><img src="<?php if (!stristr($row_like['image'], 'http')) echo SITE_URL."img/"; echo $row_like['image']; ?>" width="<?php echo IMAGE_WIDTH/2; ?>" height="<?php echo IMAGE_HEIGHT/2; ?>" alt="<?php echo $row_like['title']; ?>" title="<?php echo $row_like['title']; ?>" border="0" style="margin:5px;" class="imgs" /></a><br/>
-					<?php if ($row_like['cashback'] != "") { ?><span class="cashback"><?php echo DisplayCashback($row_like['cashback']); ?></span> <?php echo CBE1_CASHBACK; ?><?php } ?>
-				</div>
-			<?php } ?>
-			</div>
-
-			<table align="center" width="100%" border="0" cellspacing="0" cellpadding="5">
-			<tr>
-				<?php while ($row_like = mysql_fetch_array($result_like)) { ?>
-					<td class="like" width="<?php echo IMAGE_WIDTH; ?>" align="center" valign="middle">
-						<?php echo $row_like['title']; ?><br/>
-						<a href="<?php echo GetRetailerLink($row_like['retailer_id'], $row_like['title']); ?>"><img src="<?php if (!stristr($row_like['image'], 'http')) echo SITE_URL."img/"; echo $row_like['image']; ?>" width="<?php echo IMAGE_WIDTH/2; ?>" height="<?php echo IMAGE_HEIGHT/2; ?>" alt="<?php echo $row_like['title']; ?>" title="<?php echo $row_like['title']; ?>" border="0" style="margin:5px;" class="imgs" /></a><br/>
-						<?php if ($row_like['cashback'] != "") { ?><span class="cashback"><?php echo DisplayCashback($row_like['cashback']); ?></span> <?php echo CBE1_CASHBACK; ?><?php } ?>
-					</td>
-				<?php } ?>
-			</tr>
-			</table>
-		<?php } // end related retailers // ?>
-
 	<?php }else{ ?>
 
 		<h1><?php echo $ptitle; ?></h1>
@@ -470,7 +423,5 @@
 		<p align="center"><a class="goback" href="#" onclick="history.go(-1);return false;"><?php echo CBE1_GO_BACK; ?></a></p>
 
 	<?php } ?>
-
-
 
 <?php require_once ("inc/footer.inc.php"); ?>
