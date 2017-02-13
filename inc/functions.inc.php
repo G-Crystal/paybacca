@@ -1983,8 +1983,8 @@ if (!function_exists('TruncateText')) {
 			if ($more_link == 1)
 
 			{
-
-				$ttext .= ' <a id="next-button">'.CBE1_TRUNCATE_MORE.' &raquo;</a><span id="hide-text-block" style="display: none">'.str_replace($ntext, '', $text, $count = 1).' <a id="prev-button" style="display: none">&laquo; '.CBE1_TRUNCATE_LESS.'</a></span>';
+				$count = 1;
+				$ttext .= ' <a id="next-button">'.CBE1_TRUNCATE_MORE.' &raquo;</a><span id="hide-text-block" style="display: none">'.str_replace($ntext, '', $text, $count).' <a id="prev-button" style="display: none">&laquo; '.CBE1_TRUNCATE_LESS.'</a></span>';
 
 			}
 
