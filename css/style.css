@@ -2942,8 +2942,6 @@ tr.even:hover {
 
 	float: left;
 
-	width: 340px;
-
 }
 
 
@@ -3009,8 +3007,6 @@ a:hover.retailer_title_s {
 
 
 #next-button, #prev-button {
-
-	color: #94D710;
 
 	margin-left: 3px;
 
@@ -4526,11 +4522,7 @@ div.pagination a.text:hover {color: #000000;}
 
 
 a.coupon_title  {
-
-	/*font-family: 'Open Sans Condensed', Times, "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;*/
-
-	color: #94CA29;
-
+	
 	font-size: 21px;
 
 	font-weight: normal;
