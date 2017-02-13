@@ -36,6 +36,9 @@
 		crossorigin="anonymous">
 	</script>
   
+	<!--<script type="text/javascript" src="<?php echo SITE_URL; ?>js/jquery.tools.tabs.min.js"></script>-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
 	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 	<?php if (FACEBOOK_CONNECT == 1 && FACEBOOK_APPID != "" && FACEBOOK_SECRET != "") { ?>
@@ -61,9 +64,6 @@
 	<script type="text/javascript" src="<?php echo SITE_URL; ?>js/cashbackengine.js"></script>
 
 	<script type="text/javascript" src="<?php echo SITE_URL; ?>js/easySlider1.7.js"></script>
-
-	<!--<script type="text/javascript" src="<?php echo SITE_URL; ?>js/jquery.tools.tabs.min.js"></script>-->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 	<link rel="shortcut icon" href="<?php echo SITE_URL; ?>favicon.ico" />
 
@@ -178,7 +178,7 @@
 						<div class="col-xs-12 text-center">
 							<input type="hidden" name="action" value="login" />
 							<input type="submit" class="submit" name="login" id="login" value="<?php echo CBE1_LOGIN_BUTTON; ?>" />
-							<a class="common-btn" href="#signupModal" data-toggle="modal"><?php echo CBE_SIGNUP; ?></a>
+							<a class="common-btn close-login" href="#signupModal" data-toggle="modal"><?php echo CBE_SIGNUP; ?></a>
 						</div>
 					</div>
 					<div class="row form-row-control">
@@ -271,7 +271,7 @@
 						<div class="col-xs-12 text-center">
 							<input type="hidden" name="action" id="action" value="signup" />
 							<input type="submit" class="submit signup" name="Signup" id="Signup" value="<?php echo CBE1_SIGNUP_BUTTON; ?>" />
-							<a class="common-btn" href="#loginModal" data-toggle="modal"><?php echo CBE1_LOGIN_BUTTON; ?></a>
+							<a class="common-btn close-signup" href="#loginModal" data-toggle="modal"><?php echo CBE1_LOGIN_BUTTON; ?></a>
 						</div>
 					</div>
 				</form>
