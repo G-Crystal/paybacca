@@ -295,7 +295,7 @@ $(document).ready(function() {
 	});
 
 	$('.close-signup').on('click', function () {
-		$('#signupModal').modal('toggle');
+		$('#signupModal').modal('hide');
 	});
 
 });
