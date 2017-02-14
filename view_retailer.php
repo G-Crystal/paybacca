@@ -288,7 +288,7 @@
 
 			<div class="row">
 				<div class="col-xs-8 col-xs-offset-2">
-					<div class="store-box-div">
+					<div class="text-center">
 						<div class="">
 							<a class="retailer_title" href="<?php echo GetRetailerLink($row['retailer_id'], $row['title']); ?>"><?php echo $row['title']; ?></a>
 						</div>
@@ -367,8 +367,8 @@
 		<?php } // end store coupons // ?>
 
 			<div class="row">
-				<div class="col-xs-12">
-					<div class="info_box">
+				<div class="col-xs-12 text-center">
+					<div class="">
 						<div class="retailer_description"><?php echo TruncateText(stripslashes($row['description']), STORES_DESCRIPTION_LIMIT, $more_link = 1); ?>&nbsp;</div>
 						<?php echo GetStoreCountries($row['retailer_id']); ?>
 						<?php if ($row['tags'] != "") { ?><p><span class="tags"><?php echo $row['tags']; ?></span></p><?php } ?>
