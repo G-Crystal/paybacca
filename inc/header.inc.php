@@ -239,7 +239,7 @@
 				<?php } ?>
 
 				<div class="login_box">
-				<form action="<?php echo SITE_URL; ?>login.php" method="post">
+				<form action="<?php echo SITE_URL; ?>signup.php" method="post">
 					<div class="row form-row-control">
 						<div class="col-xs-4 form-row-label"><span class="req">* </span><?php echo CBE1_LABEL_FNAME; ?>:</div>
 						<div class="col-xs-8"><input type="text" id="fname" class="textbox" name="fname" value="<?php echo getPostParameter('fname'); ?>" size="27" /></div>
@@ -269,6 +269,9 @@
 					</div>
 					<div class="row form-row-control justify-content-center">
 						<div class="col-xs-12 text-center">
+							<?php if (isset($_COOKIE['referer_id']) && is_numeric($_COOKIE['referer_id'])) { ?>
+								<input type="hidden" name="referer_id" id="referer_id" value="<?php echo (int)$_COOKIE['referer_id']; ?>" />
+							<?php } ?>
 							<input type="hidden" name="action" id="action" value="signup" />
 							<input type="submit" class="submit signup" name="Signup" id="Signup" value="<?php echo CBE1_SIGNUP_BUTTON; ?>" />
 							<a class="common-btn close-signup" href="#loginModal" data-toggle="modal"><?php echo CBE1_LOGIN_BUTTON; ?></a>
