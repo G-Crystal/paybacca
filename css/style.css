@@ -1021,7 +1021,7 @@ a.go2store {
 
 	border: 1px solid #DBFB9D;
 
-	background: #94D710 url('../images/goto.png') no-repeat center right 4px;
+	background: #669b99 url('../images/goto.png') no-repeat center right 4px;
 
     border: none;
 
@@ -1037,6 +1037,8 @@ a.go2store {
 
 	text-decoration: none;
 
+	margin: 2px 0 2px 10px;
+
 }
 
 
@@ -1045,7 +1047,7 @@ a:hover.go2store {
 
 	color: #FFFFFF;
 
-	background: #AEEF2D url('../images/goto.png') no-repeat center right 3px;
+	background: #81bbb9 url('../images/goto.png') no-repeat center right 3px;
 
 	text-decoration: none;
 
@@ -4500,7 +4502,7 @@ div.pagination a.text:hover {color: #000000;}
 
 	font-size: 12px;
 
-	color: #94CA29;
+	color: #669b99;
 
 	text-decoration: none;
 

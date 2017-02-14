@@ -172,202 +172,42 @@
 
 			?>
 
-				<table align="center" width="100%" border="0" cellspacing="0" cellpadding="5">
-
-				<?php while ($ex_row = mysql_fetch_array($ex_result)) { $cc++; ?>
-
-				<tr>
-
-					<td class="td_coupon" width="<?php echo IMAGE_WIDTH; ?>" align="center" valign="top">
-
-						<?php if ($ex_row['exclusive'] == 1) { ?><span class="exclusive" alt="<?php echo CBE1_COUPONS_EXCLUSIVE; ?>" title="<?php echo CBE1_COUPONS_EXCLUSIVE; ?>"><?php echo CBE1_COUPONS_EXCLUSIVE; ?></span><?php } ?>
-
-						<div class="imagebox"><a href="<?php echo GetRetailerLink($ex_row['retailer_id'], $ex_row['title']); ?>"><img src="<?php if (!stristr($ex_row['image'], 'http')) echo SITE_URL."img/"; echo $ex_row['image']; ?>" width="<?php echo IMAGE_WIDTH; ?>" height="<?php echo IMAGE_HEIGHT; ?>" alt="<?php echo $ex_row['title']; ?>" title="<?php echo $ex_row['title']; ?>" border="0" /></a></div>
-
-						<br/><a class="more" href="<?php echo GetRetailerLink($ex_row['retailer_id'], $ex_row['title']); ?>#coupons"><?php echo CBE1_COUPONS_SEEALL; ?></a>
-
-					</td>
-
-					<td width="80%" class="td_coupon" align="left" valign="top">
-
-						<span class="coupon_name"><?php echo $ex_row['title']; ?> <a href="<?php echo SITE_URL; ?>go2store.php?id=<?php echo $ex_row['retailer_id']; ?>&c=<?php echo $ex_row['coupon_id']; ?>" target="_blank"><?php echo $ex_row['coupon_title']; ?></a></span>
-
-						<?php echo ($ex_row['visits'] > 0) ? "<span class='coupon_times_used'><sup>".$ex_row['visits']." ".CBE1_COUPONS_TUSED."</sup></span>" : ""; ?>
-
-						<br/>
-
-						<?php if ($ex_row['description'] != "") { ?><div class="coupon_description"><?php echo TruncateText($ex_row['description'], COUPONS_DESCRIPTION_LIMIT, $more_link = 1); ?>&nbsp;</div><?php } ?>
-
-						<?php if ($ex_row['end_date'] != "0000-00-00 00:00:00") { ?>
-
-							<span class="expires"><?php echo CBE1_COUPONS_EXPIRES; ?>: <?php echo $ex_row['coupon_end_date']; ?></span> &nbsp; 
-
-							<span class="time_left"><?php echo CBE1_COUPONS_TIMELEFT; ?>: <?php echo GetTimeLeft($ex_row['time_left']); ?></span>
-
-						<?php } ?>
-
-					</td>
-
-					<td class="td_coupon" align="left" valign="bottom">
-
-						<?php if ($ex_row['code'] != "") { ?><span class="coupon_code"><?php echo (HIDE_COUPONS == 0 || isLoggedIn()) ? $ex_row['code'] : CBE1_COUPONS_CODE_HIDDEN; ?></span><?php } ?>
-
-						<a class="go2store" href="<?php echo SITE_URL; ?>go2store.php?id=<?php echo $ex_row['retailer_id']; ?>&c=<?php echo $ex_row['coupon_id']; ?>" target="_blank"><?php echo ($ex_row['code'] != "") ? CBE1_COUPONS_LINK : CBE1_COUPONS_LINK2; ?></a>
-
-					</td>
-
-				</tr>
-
-				<?php } ?>
-
-				</table>
-
-
-
-				<?php }else{ ?>
-
-					<p align="center"><?php echo CBE1_COUPONS_NO; ?></p>
-
-					<div class="sline"></div>
-
-				<?php } ?>
-
-		</div>
-
-
-	<?php
-
-
-
-		$astores_query = "SELECT * FROM cashbackengine_retailers WHERE (end_date='0000-00-00 00:00:00' OR end_date > NOW()) AND status='active' ORDER BY title";
-
-		$astores_result = smart_mysql_query($astores_query);
-
-		$astores_total = mysql_num_rows($astores_result);
-
-
-
-		if ($total > 0 && $astores_total > 0)
-
-		{
-
-			$stores_per_column = 10;
-
-			$vv = 0;
-
-			$b = 0;
-
-	?>
-
-
-
-		<h3 class="brd"><?php echo CBE1_COUPONS_BYSTORE; ?></h3>
-
-
-
-		<div id="alphabet">
-
-		<ul>
-
-			<?php
-
-					$numLetters = count($alphabet);
-
-					$i = 0;
-
-
-
-					foreach ($alphabet as $letter)
-
-					{
-
-						$i++;
-
-						if ($i == $numLetters) $lilast = ' class="last"'; else $lilast = '';
-
-						echo "<li".$lilast."><a href=\"#$letter\">".$letter."</a></li>";
-
-					}
-
-			?>
-
-		</ul>
-
-		</div>
-
-
-
-		<ul class="stores_list">
-
-		<?php while ($astores_row = mysql_fetch_array($astores_result)) { ?>
-
-			<?php
-
-
-
-				$first_letter = ucfirst(substr($astores_row['title'], 0, 1));
-
-				if ($old_letter != $first_letter)
-
-				{
-
-					if ($b != 0 && $vv != 1) echo "</ul>";
-
-					if (!in_array($first_letter, $alphabet))
-
-					{
-
-						if ($vv != 1)
-
-						{
-
-							echo "<li class='store2'><div class='letter'>0-9<a name='0-9'></a></div><ul>";
-
-							$vv = 1;
-
-						}
-
-					}
-
-					else
-
-					{
-
-						if ($vv == 1) echo "</ul>";
-
-						echo "<li class='store2'><div class='letter'>$first_letter<a name='$first_letter'></a></div><ul>";
-
-					}
-
-							
-
-					$old_letter = $first_letter;
-
-					$b++;
-
-					$bb = 0;
-
-				}
-
-			?>
-
-				<?php if ($astores_row['featured'] == 1) { $ftag1 = "<b>"; $ftag2 = "</b>"; }else{  $ftag1 = $ftag2 = ""; } ?>
-
-
-
-				<li><a href="<?php echo GetRetailerLink($astores_row['retailer_id'], $astores_row['title']); ?>"><?php echo $ftag1; ?><?php echo (strlen($astores_row['title']) > 75) ? substr($astores_row["title"], 0, 70)."..." : $astores_row["title"]; ?><?php echo $ftag2; ?></a> <span class="coupons"><?php echo GetStoreCouponsTotal($astores_row['retailer_id']); ?></span></li>
-
-
-
-				<?php $bb++; if ($bb%$stores_per_column == 0) echo "</ul><ul>"; ?>
+			<?php while ($ex_row = mysql_fetch_array($ex_result)) { $cc++; ?>
+			<div class="row">
+				<div class="col-md-2 col-sm-3 col-xs-12 text-center">
+					<?php if ($ex_row['exclusive'] == 1) { ?><div class="exclusive" alt="<?php echo CBE1_COUPONS_EXCLUSIVE; ?>" title="<?php echo CBE1_COUPONS_EXCLUSIVE; ?>"><?php echo CBE1_COUPONS_EXCLUSIVE; ?></div><?php } ?>
+
+					<div class="imagebox"><a href="<?php echo GetRetailerLink($ex_row['retailer_id'], $ex_row['title']); ?>"><img src="<?php if (!stristr($ex_row['image'], 'http')) echo SITE_URL."img/"; echo $ex_row['image']; ?>" width="<?php echo IMAGE_WIDTH; ?>" height="<?php echo IMAGE_HEIGHT; ?>" alt="<?php echo $ex_row['title']; ?>" title="<?php echo $ex_row['title']; ?>" border="0" /></a></div>
+				</div>
+
+				<div class="col-md-8 col-sm-6 col-xs-12">
+					<span class="coupon_name"><?php echo $ex_row['title']; ?> <a href="<?php echo SITE_URL; ?>go2store.php?id=<?php echo $ex_row['retailer_id']; ?>&c=<?php echo $ex_row['coupon_id']; ?>" target="_blank"><?php echo $ex_row['coupon_title']; ?></a></span>
+					<?php echo ($ex_row['visits'] > 0) ? "<span class='coupon_times_used'><sup>".$ex_row['visits']." ".CBE1_COUPONS_TUSED."</sup></span>" : ""; ?>
+					<br/>
+					<?php if ($ex_row['description'] != "") { ?><div class="coupon_description"><?php echo TruncateText($ex_row['description'], COUPONS_DESCRIPTION_LIMIT, $more_link = 1); ?>&nbsp;</div><?php } ?>
+					<?php if ($ex_row['end_date'] != "0000-00-00 00:00:00") { ?>
+						<span class="expires"><?php echo CBE1_COUPONS_EXPIRES; ?>: <?php echo $ex_row['coupon_end_date']; ?></span> &nbsp; 
+						<span class="time_left"><?php echo CBE1_COUPONS_TIMELEFT; ?>: <?php echo GetTimeLeft($ex_row['time_left']); ?></span>
+					<?php } ?>
+				</div>
+
+				<div class="col-md-2 col-sm-3 col-xs-12 text-right">
+					<?php if ($ex_row['code'] != "") { ?><span class="coupon_code"><?php echo (HIDE_COUPONS == 0 || isLoggedIn()) ? $ex_row['code'] : CBE1_COUPONS_CODE_HIDDEN; ?></span><?php } ?>
+					<a class="go2store" href="<?php echo SITE_URL; ?>go2store.php?id=<?php echo $ex_row['retailer_id']; ?>&c=<?php echo $ex_row['coupon_id']; ?>" target="_blank"><?php echo ($ex_row['code'] != "") ? CBE1_COUPONS_LINK : CBE1_COUPONS_LINK2; ?></a>
+				</div>
+			</div>
+			<?php } ?>
+
+
+			<?php }else{ ?>
+
+				<p align="center"><?php echo CBE1_COUPONS_NO; ?></p>
+
+				<div class="sline"></div>
 
 			<?php } ?>
 
-		</ul>
-
-	<?php } ?>
-
-
+		</div>
 
 
 
