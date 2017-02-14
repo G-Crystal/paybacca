@@ -168,15 +168,29 @@
 
 <meta http-equiv="refresh" content="3; url=<?php echo $website_url; ?>" />
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <link href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700" rel="stylesheet" type="text/css" />
 
 <link rel="shortcut icon" href="<?php echo SITE_URL; ?>favicon.ico" />
 
 <link rel="icon" type="image/ico" href="<?php echo SITE_URL; ?>favicon.ico" />
 
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Comfortaa" />
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <style type="text/css">
 
 <!--
+
+html {
+	height: 100%;
+}
 
 body {
 
@@ -193,9 +207,13 @@ body {
 
 	padding: 0;
 
+	height: 100%;
+
 }
 
-
+.container-fluid {
+	height: 100%;
+}
 
 a {
 
@@ -217,8 +235,6 @@ a:hover {
 
 .header {
 
-	width: 100%;
-
 	height: 70px;
 
 	background: #FFF;
@@ -227,39 +243,19 @@ a:hover {
 
 }
 
-
-
-.container {
-
-	width: 100%;
-
-	height: 100%;
-
-	position: absolute;
-
-	top: 25%;
-
-	left: 35%;
-
-	width: 350px;
-
+.main-div {
+	position: relative;
+    height: calc(100% - 70px);
+	padding: 0;
 }
 
-
-
 .box {
-
-	position: relative;
-
-	float: left;
 
 	height: 225px;
 
 	width: 400px;
 
-	padding: 0 20px 20px 20px;
-
-	text-align: left;
+	padding: 10px 20px 20px 20px;
 
 	border: 1px solid #DDD;
 
@@ -278,14 +274,20 @@ a:hover {
 	-webkit-box-shadow: 0 0 5px 5px #E2E2E2;
 
 	box-shadow: 0 0 5px 5px #E2E2E2;
-
+	
+    position: absolute;
+    left: 50%;
+    top: 50%;
+	transform: translate(-50%, -50%);
 }
 
-
+@media screen and (max-width: 768px) {
+	.box {
+		width: 90%;
+	}
+}
 
 .msg {
-
-	/*font-family: 'Open Sans Condensed', Times, "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;*/
 
 	font-size: 18px;
 
@@ -294,8 +296,6 @@ a:hover {
 	color: #777777;
 
 	line-height: 30px;
-
-	text-align: left;
 
 }
 
@@ -347,15 +347,9 @@ a:hover {
 
 .logo {
 
-	position: absolute;
-
-	float: right;
-
 	top: 90px;
 
 	right: 15px;
-
-	/*border: 5px solid #F9F9F9;*/
 
 }
 
@@ -387,46 +381,49 @@ a:hover {
 
 <body>
 
-<div class="header"><center><a href="<?php echo SITE_URL; ?>"><img src="<?php echo SITE_URL; ?>images/logo.png" /></a></center></div>
 
-<div class="container">
+<div class="container-fluid">
+	<div class="header row"><div class="text-center"><a href="<?php echo SITE_URL; ?>"><img src="<?php echo SITE_URL; ?>images/logo.png" /></a></div></div>
 
-	<div class="box">
+	<div class="col-xs-12 main-div">
+		<div class="box">
 
-		<p align="center"><?php echo CBE1_REDIRECT_TEXT; ?><br/><br/><img src="<?php echo SITE_URL; ?>images/loading.gif"></p>
+			<p align="center"><?php echo CBE1_REDIRECT_TEXT; ?><br/><br/><img src="<?php echo SITE_URL; ?>images/loading.gif"></p>
 
-		<div class="msg">
+			<div class="msg text-center">
 
-			<?php if (isLoggedIn()) { ?>
+				<span>Activating Cash Back</span>
 
-			<span class="username"><?php echo $_SESSION['FirstName']; ?></span>, <?php echo CBE1_REDIRECT_TEXT2; ?>:
+				<!--<?php if (isLoggedIn()) { ?>
 
-			<br/>
+				<span class="username"><?php echo $_SESSION['FirstName']; ?></span>, <?php echo CBE1_REDIRECT_TEXT2; ?>:
 
-			<span class="cashback"><?php echo CBE1_REDIRECT_TEXT3; ?> <?php echo $cashback; ?> <?php echo CBE1_CASHBACK; ?></span>
+				<br/>
 
-			<br/><?php echo CBE1_REDIRECT_TEXT4; ?>
+				<span class="cashback"><?php echo CBE1_REDIRECT_TEXT3; ?> <?php echo $cashback; ?> <?php echo CBE1_CASHBACK; ?></span>
 
-			<?php }else{ ?>
+				<br/><?php echo CBE1_REDIRECT_TEXT4; ?>
 
-				<?php echo CBE1_REDIRECT_TEXT1; ?> <?php echo $store_name; ?> ... 
+				<?php }else{ ?>
 
+					<?php echo CBE1_REDIRECT_TEXT1; ?> <?php echo $store_name; ?> ... 
+
+				<?php } ?>-->
+
+			</div>	
+
+			<!--<div class="store-name"><?php echo $store_name; ?></div>-->
+
+			<?php if ($row['image'] != "noimg.gif") { ?>
+			<div class="text-center">
+				<img src="<?php if (!stristr($row['image'], 'http')) echo SITE_URL."img/"; echo $row['image']; ?>" width="<?php echo IMAGE_WIDTH; ?>" alt="<?php echo $store_name; ?>" title="<?php echo $store_name; ?>" border="0" class="logo" />
+			</div>
 			<?php } ?>
 
-		</div>	
+			<div class="info"><?php echo str_replace("%url%", $website_url, CBE1_REDIRECT_TEXT5); ?></div>
 
-		<div class="store-name"><?php echo $store_name; ?></div>
-
-		<?php if ($row['image'] != "noimg.gif") { ?>
-
-			<img src="<?php if (!stristr($row['image'], 'http')) echo SITE_URL."img/"; echo $row['image']; ?>" width="<?php echo IMAGE_WIDTH; ?>" height="<?php echo IMAGE_HEIGHT; ?>" alt="<?php echo $store_name; ?>" title="<?php echo $store_name; ?>" border="0" class="logo" />
-
-		<?php } ?>
-
-		<div class="info"><?php echo str_replace("%url%", $website_url, CBE1_REDIRECT_TEXT5); ?></div>
-
+		</div>
 	</div>
-
 </div>
 
 </body>
