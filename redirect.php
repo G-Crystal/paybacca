@@ -394,25 +394,7 @@ a:hover {
 
 				<span>Activating Cash Back</span>
 
-				<!--<?php if (isLoggedIn()) { ?>
-
-				<span class="username"><?php echo $_SESSION['FirstName']; ?></span>, <?php echo CBE1_REDIRECT_TEXT2; ?>:
-
-				<br/>
-
-				<span class="cashback"><?php echo CBE1_REDIRECT_TEXT3; ?> <?php echo $cashback; ?> <?php echo CBE1_CASHBACK; ?></span>
-
-				<br/><?php echo CBE1_REDIRECT_TEXT4; ?>
-
-				<?php }else{ ?>
-
-					<?php echo CBE1_REDIRECT_TEXT1; ?> <?php echo $store_name; ?> ... 
-
-				<?php } ?>-->
-
-			</div>	
-
-			<!--<div class="store-name"><?php echo $store_name; ?></div>-->
+			</div>
 
 			<?php if ($row['image'] != "noimg.gif") { ?>
 			<div class="text-center">
