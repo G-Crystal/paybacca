@@ -164,7 +164,7 @@
 	</div>
 
 	<div class="col-xs-12 text-center">
-		<a id="browse_more_btn" class="common-btn browse-more-div">Browse More</a>
+		<a id="browse_more_btn" class="common-btn margin-top-10">Browse More</a>
 	</div>
 
 
