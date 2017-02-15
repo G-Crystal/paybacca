@@ -58,7 +58,7 @@ define ('CBE_LOGOUT', 'Logout');
 
 define ('CBE1_CASHBACK', 'Cash Back');
 
-define ('CBE1_CASHBACK2', 'Cashback');
+define ('CBE1_CASHBACK2', 'Cash Back');
 
 define ('CBE1_POINTS', 'points');
 
@@ -72,7 +72,7 @@ define ('CBE1_REPORT', 'Report');
 
 define ('CBE1_GO_TO_STORE', 'Go to Store');
 
-define ('CBE1_GO_TO_STORE2', 'Go to store and earn cashback');
+define ('CBE1_GO_TO_STORE2', 'Go to store and earn cash back');
 
 define ('CBE1_SORT_BY', 'Sort by');
 
@@ -82,7 +82,7 @@ define ('CBE1_SORT_POPULARITY', 'Popularity');
 
 define ('CBE1_SORT_DATE', 'Newest');
 
-define ('CBE1_SORT_CASHBACK', 'Cashback');
+define ('CBE1_SORT_CASHBACK', 'Cash Back');
 
 define ('CBE1_RESULTS', 'Results');
 
@@ -256,7 +256,7 @@ define ('CBE1_LOGIN_ERR2', 'Sorry, your account is deactivated.<br/> For more in
 
 define ('CBE1_LOGIN_ERR3', 'You must login first');
 
-define ('CBE1_LOGIN_ERR4', 'You need to login to earn cashback');
+define ('CBE1_LOGIN_ERR4', 'You need to login to earn cash back');
 
 define ('CBE1_LOGIN_ERR6', 'You account has been blocked. For more information please <a href="'.SITE_URL.'contact.php">contact us</a>');
 
@@ -284,7 +284,7 @@ define ('CBE1_LOGIN_TEXT2', 'Sign up and start earning today! It\'s totally free
 
 define ('CBE1_LOGIN_THX', 'No thanks, I just want to shop');
 
-define ('CBE1_LOGIN_CONTINUE', 'Continue shopping without cashback');
+define ('CBE1_LOGIN_CONTINUE', 'Continue shopping without cash back');
 
 define ('CBE1_LOGIN_TXT1', 'Why Join %site_title%?');
 
@@ -294,7 +294,7 @@ define ('CBE1_LOGIN_LI2', '<b>%amount%</b> bonus when you sign up');
 
 define ('CBE1_LOGIN_LI3', 'Refer your friends earn <b>%amount%</b> each');
 
-define ('CBE1_LOGIN_LI4', 'Earn up to <b>35%</b> cashback offers');
+define ('CBE1_LOGIN_LI4', 'Earn up to <b>35%</b> cash back offers');
 
 define ('CBE1_LOGIN_LI5', 'Coupon codes to help you save more');
 
@@ -446,11 +446,11 @@ define ('CBE1_REDIRECT_TEXT5', '<a href="%url%">Click here</a> if you are not au
 
 define ('CBE1_ACCOUNT_TITLE', 'My Account');
 
-define ('CBE1_ACCOUNT_WELCOME', 'Welcome, <b>%username%</b>. You are currently signed in, so you can start earning cashback right now!');
+define ('CBE1_ACCOUNT_WELCOME', 'Welcome, <b>%username%</b>. You are currently signed in, so you can start earning cash back right now!');
 
 define ('CBE1_ACCOUNT_MSG', 'Congratulations! Your account is now active and you are currently signed in!');
 
-define ('CBE1_ACCOUNT_MSG2', 'Your current balance is <b>%amount%</b>. New to cashback? <a href="'.SITE_URL.'help.php">Find out how it works</a>');
+define ('CBE1_ACCOUNT_MSG2', 'Your current balance is <b>%amount%</b>. New to cash back? <a href="'.SITE_URL.'help.php">Find out how it works</a>');
 
 define ('CBE1_ACCOUNT_MSG3', 'From here you can <a href="'.SITE_URL.'withdraw.php">withdraw your earnings</a>, <a href="'.SITE_URL.'invite.php">invite your friends</a>, see <a href="'.SITE_URL.'mybalance.php">payment history</a>, <a href="'.SITE_URL.'myclicks.php">click history</a> and much more.');
 
@@ -460,7 +460,7 @@ define ('CBE1_ACCOUNT_STEP1', 'Find the store');
 
 define ('CBE1_ACCOUNT_STEP2', 'Click "Go to Store" link');
 
-define ('CBE1_ACCOUNT_STEP3', 'Start earning cashback');
+define ('CBE1_ACCOUNT_STEP3', 'Start earning cash back');
 
 define ('CBE1_ACCOUNT_FEATURED', 'Check out our featured offers');
 
@@ -726,27 +726,27 @@ define ('CBE1_BALANCE_TITLE', 'Balance & History');
 
 define ('CBE1_BALANCE_ABALANCE', 'Available Balance');
 
-define ('CBE1_BALANCE_PCASHBACK', 'Pending Cashback');
+define ('CBE1_BALANCE_PCASHBACK', 'Pending Cash Back');
 
-define ('CBE1_BALANCE_DCASHBACK', 'Declined Cashback');
+define ('CBE1_BALANCE_DCASHBACK', 'Declined Cash Back');
 
 define ('CBE1_BALANCE_CREQUESTED', 'Cash Out Requested');
 
 define ('CBE1_BALANCE_CPROCESSED', 'Cash Out Processed');
 
-define ('CBE1_BALANCE_LCASHBACK', 'Lifetime Cashback');
+define ('CBE1_BALANCE_LCASHBACK', 'Lifetime Cash Back');
 
 define ('CBE1_BALANCE_TEXT', 'You can view a history of all payments made to you on ');
 
-define ('CBE1_BALANCE_TEXT2', '<b>Please NOTE</b>: Cashback statistics are not updated in realtime.<br/> Your cashback statistics were last updated at ');
+define ('CBE1_BALANCE_TEXT2', '<b>Please NOTE</b>: Cash back statistics are not updated in realtime.<br/> Your cash back statistics were last updated at ');
 
-define ('CBE1_BALANCE_TITLE2', 'Stores Cashback');
+define ('CBE1_BALANCE_TITLE2', 'Stores Cash back');
 
 define ('CBE1_BALANCE_DATE', 'Date');
 
 define ('CBE1_BALANCE_STORE', 'Store');
 
-define ('CBE1_BALANCE_CASHBACK', 'Cashback');
+define ('CBE1_BALANCE_CASHBACK', 'Cash Back');
 
 define ('CBE1_BALANCE_STATUS', 'Status');
 
@@ -756,7 +756,7 @@ define ('CBE1_BALANCE_STATUS', 'Status');
 
 /* PAYMENT TYPES NAMES */
 
-define ('PAYMENT_TYPE_CASHBACK', 'Cashback');
+define ('PAYMENT_TYPE_CASHBACK', 'Cash Back');
 
 define ('PAYMENT_TYPE_WITHDRAWAL', 'Withdrawal');
 
@@ -824,7 +824,7 @@ define ('CBE1_SEARCH_POPULARITY', 'Popularity');
 
 define ('CBE1_SEARCH_DATE', 'Newest');
 
-define ('CBE1_SEARCH_CASHBACK', 'Cashback');
+define ('CBE1_SEARCH_CASHBACK', 'Cash Back');
 
 define ('CBE1_SEARCH_NO', 'Sorry, no results found for your search criteria. Please try to broaden your search term a little.');
 
@@ -972,7 +972,7 @@ define ('CBE1_INVITE_EMAIL', 'Friend\'s Email');
 
 define ('CBE1_INVITE_MESSAGE', 'Message');
 
-define ('CBE1_INVITE_EMAIL_MESSAGE', 'Hi %friend_name%,<br/><br/>I get money back when I shop online by using %site_title%. All you do is click through their site before shopping online just like you normally would.<br/><br/>Click here %referral_link% to join and start earn cashback every time you shop online.');
+define ('CBE1_INVITE_EMAIL_MESSAGE', 'Hi %friend_name%,<br/><br/>I get money back when I shop online by using %site_title%. All you do is click through their site before shopping online just like you normally would.<br/><br/>Click here %referral_link% to join and start earn cash back every time you shop online.');
 
 define ('CBE1_INVITE_BUTTON', 'Send Invitations');
 
@@ -1018,7 +1018,7 @@ define ('CBE1_STORES_WORLDWIDE', 'Worldwide Store');
 
 define ('CBE1_STORES_NO', 'There are no stores to list in this category.');
 
-define ('CBE1_STORES_LOGIN', 'You need to be logged in to earn cashback. <a href="'.SITE_URL.'login.php">Click here</a> to login.');
+define ('CBE1_STORES_LOGIN', 'You need to be logged in to earn cash back. <a href="'.SITE_URL.'login.php">Click here</a> to login.');
 
 
 
@@ -1050,7 +1050,7 @@ define ('CBE1_STORE_FAVORITES', 'Favourites');
 
 define ('CBE1_STORE_DATE', 'Date Added');
 
-define ('CBE1_STORE_CCALCULATOR', 'Cashback Calculator');
+define ('CBE1_STORE_CCALCULATOR', 'Cash Back Calculator');
 
 define ('CBE1_STORE_SPEND', 'spend');
 
