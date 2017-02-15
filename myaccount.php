@@ -263,4 +263,138 @@
 	</div>
 
 
+
+	<a name="details"></a>
+
+	<?php
+	// payment details //
+	if (isset($_GET['id']) && is_numeric($_GET['id']))
+	{
+		$transaction_id = (int)$_GET['id'];
+
+		$payment_result = smart_mysql_query("SELECT *, DATE_FORMAT(created, '".DATE_FORMAT." %h:%i %p') AS date_created, DATE_FORMAT(process_date, '".DATE_FORMAT." %h:%i %p') AS process_date FROM cashbackengine_transactions WHERE transaction_id='$transaction_id' AND user_id='$userid' AND retailer='' AND status<>'unknown' LIMIT 1");
+
+		if (mysql_num_rows($payment_result) > 0)
+		{
+			$payment_row = mysql_fetch_array($payment_result);
+	?>
+
+	<div id="payment_info"> 
+		<br/>
+		<div style="float: right; margin-top: 20px"><a id="hide_payment" href="javascript:void(0)"><img src="<?php echo SITE_URL; ?>images/icon_hide.png" /></a></div>
+
+		<h3 class="brd"><?php echo CBE1_PAYMENTS_DETAILS; ?> #<?php echo $payment_row['reference_id']; ?></h3>
+
+		<div class="payment_details text-center">
+			<div class="row">
+				<div class="col-xs-3"><?php echo CBE1_PAYMENTS_TYPE; ?></div>
+				<div class="col-xs-9">
+				<?php
+					switch ($payment_row['payment_type'])
+					{
+						case "Cashback":			echo PAYMENT_TYPE_CASHBACK; break;
+						case "Withdrawal":			echo PAYMENT_TYPE_WITHDRAWAL; break;
+						case "Referral Commission": echo PAYMENT_TYPE_RCOMMISSION; break;
+						case "friend_bonus":		echo PAYMENT_TYPE_FBONUS; break;
+						case "signup_bonus":		echo PAYMENT_TYPE_SBONUS; break;
+						default:					echo $payment_row['payment_type']; break;
+					}
+				?>
+				<?php if ($payment_row['ref_id'] > 0) { ?> &nbsp; <span class="user"><?php echo GetUsername($payment_row['ref_id'], $hide_lastname = 1); ?></span><?php } ?>
+				</div>
+			</div>
+
+			<?php if ($payment_row['payment_type'] == "Withdrawal" && $payment_row['payment_method'] != "") { ?>
+			<div class="row">
+				<div class="col-xs-3"><?php echo CBE1_PAYMENTS_METHOD; ?></div>
+				<div class="col-xs-9">
+					<?php if ($payment_row['payment_method'] == "paypal") { ?><img src="<?php echo SITE_URL; ?>images/icon_paypal.png" align="absmiddle" />&nbsp;<?php } ?>
+					<?php echo GetPaymentMethodByID($payment_row['payment_method']); ?>
+				</div>
+			</div>
+			<?php } ?>
+
+			<?php if ($payment_row['payment_details'] != "") { ?>
+			<div class="row">
+				<div class="col-xs-3"><?php echo CBE1_PAYMENTS_DETAILS; ?></div>
+				<div class="col-xs-9"><?php echo $payment_row['payment_details']; ?></div>
+			</div>
+			<?php } ?>
+
+			<div class="row">
+				<div class="col-xs-3"><?php echo CBE1_PAYMENTS_AMOUNT; ?></div>
+				<div class="col-xs-9"><?php echo DisplayMoney($payment_row['amount']); ?></div>
+			</div>
+
+			<?php if ($payment_row['payment_type'] == "Withdrawal" && $payment_row['transaction_commision'] != "0.0000") { ?>
+			<div class="row">
+				<div class="col-xs-3"><?php echo CBE1_PAYMENTS_COMMISSION; ?></div>
+				<div class="col-xs-9"><?php echo DisplayMoney($payment_row['transaction_commision']); ?></div>
+			</div>
+			<div class="row">
+				<div class="col-xs-3"><?php echo CBE1_PAYMENTS_TAMOUNT; ?></div>
+				<div class="col-xs-9"><b><?php echo DisplayMoney($payment_row['amount']-$payment_row['transaction_commision']); ?></b></div>
+			</div>
+			<?php } ?>
+
+			<div class="row">
+				<div class="col-xs-3"><?php echo CBE1_PAYMENTS_DATE; ?></div>
+				<div class="col-xs-9"><?php echo $payment_row['date_created']; ?></div>
+			</div>
+
+			<?php if ($payment_row['process_date'] != "") { ?>
+			<div class="row">
+				<div class="col-xs-3"><?php echo CBE1_PAYMENTS_PDATE; ?></div>
+				<div class="col-xs-9"><?php echo $payment_row['process_date']; ?></div>
+			</div>
+			<?php } ?>
+
+			<div class="row">
+				<div class="col-xs-3"><?php echo CBE1_PAYMENTS_STATUS; ?></div>
+				<div class="col-xs-9">
+				<?php
+					switch ($payment_row['status'])
+					{
+						case "confirmed":	echo "<span class='confirmed_status'>".STATUS_CONFIRMED."</span>"; break;
+						case "pending":		echo "<span class='pending_status'>".STATUS_PENDING."</span>"; break;
+						case "declined":	echo "<span class='declined_status'>".STATUS_DECLINED."</span>"; break;
+						case "failed":		echo "<span class='failed_status'>".STATUS_FAILED."</span>"; break;
+						case "request":		echo "<span class='request_status'>".STATUS_REQUEST."</span>"; break;
+						case "paid":		echo "<span class='paid_status'>".STATUS_PAID."</span>"; break;
+						default:			echo "<span class='payment_status'>".$payment_row['status']."</span>"; break;
+					}
+
+					if ($payment_row['status'] == "declined" && $payment_row['reason'] != "")
+					{
+						echo " <div class='cashbackengine_tooltip'><img src='".SITE_URL."images/info.png' align='absmiddle' /><span class='tooltip'>".$payment_row['reason']."</span></div>";
+					}
+				?>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<?php
+		}
+	} // end payment details
+	?>
+
+	<div class="row">
+		<div class="col-xs-12 text-center"><a class="common-btn" href="<?php echo SITE_URL; ?>mysupport.php">Purchase</a></div>
+	</div>
+
+	<script type="text/javascript">
+
+	$("#hide_payment").click(function () {
+		$("#payment_info").hide();
+	});
+
+	$("#show_payment").click(function () {
+		$("#payment_info").show('fast');
+	});
+
+	</script>
+
+
 <?php require_once ("inc/footer.inc.php"); ?>
