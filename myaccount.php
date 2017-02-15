@@ -159,7 +159,7 @@
 				</div>
 			</div>
 		<?php } ?>
-			<?php echo ShowPagination("transactions",$results_per_page,"mybalance.php?","WHERE user_id='$userid' AND retailer!='' AND status!='unknown'"); ?>
+			<?php echo ShowPagination("transactions",$results_per_page,"myaccount.php?","WHERE user_id='$userid' AND retailer!='' AND status!='unknown'"); ?>
 		<?php }else{ ?>
 			<div class="row text-center">
 				<div class="col-xs-12"><?php echo CBE1_PAYMENTS_NO; ?></div>
@@ -176,7 +176,7 @@
 		{
 			$transaction_id = (int)$_GET['id'];
 			smart_mysql_query("DELETE FROM cashbackengine_transactions WHERE user_id='$userid' AND transaction_id='$transaction_id' AND payment_type='Withdrawal' AND status='request'");
-			header("Location: mybalance.php?msg=cancelled");
+			header("Location: myaccount.php?msg=cancelled");
 			exit();
 		}
 
@@ -247,14 +247,14 @@
 				?>
 				</div>
 				<div class="col-xs-2">
-					<a href="<?php echo SITE_URL; ?>mybalance.php?id=<?php echo $row['transaction_id']; if ($page > 1) echo "&page=".$page; ?>#details" id="show_payment"><img src="<?php echo SITE_URL; ?>images/icon_view.png" /></a>
+					<a href="<?php echo SITE_URL; ?>myaccount.php?id=<?php echo $row['transaction_id']; if ($page > 1) echo "&page=".$page; ?>#details" id="show_payment"><img src="<?php echo SITE_URL; ?>images/icon_view.png" /></a>
 					<?php if (CANCEL_WITHDRAWAL == 1 && $row['payment_type'] == "Withdrawal" && $row['status'] == "request") { ?>
-						<a href="#" onclick="if (confirm('<?php echo CBE1_PAYMENTS_CANCEL_MSG; ?>') )location.href='<?php echo SITE_URL; ?>mybalance.php?id=<?php echo $row['transaction_id']; ?>&act=cancel'" title="<?php echo CBE1_PAYMENTS_CANCEL; ?>"><img src="<?php echo SITE_URL; ?>images/cancel.png" border="0" alt="<?php echo CBE1_PAYMENTS_CANCEL; ?>" /></a>
+						<a href="#" onclick="if (confirm('<?php echo CBE1_PAYMENTS_CANCEL_MSG; ?>') )location.href='<?php echo SITE_URL; ?>myaccount.php?id=<?php echo $row['transaction_id']; ?>&act=cancel'" title="<?php echo CBE1_PAYMENTS_CANCEL; ?>"><img src="<?php echo SITE_URL; ?>images/cancel.png" border="0" alt="<?php echo CBE1_PAYMENTS_CANCEL; ?>" /></a>
 					<?php } ?>
 				</div>
 			</div>
 		<?php } ?>
-			<?php echo ShowPagination("transactions",$results_per_page,"mybalance.php?","WHERE user_id='$userid' AND retailer='' AND status!='unknown'"); ?>
+			<?php echo ShowPagination("transactions",$results_per_page,"myaccount.php?","WHERE user_id='$userid' AND retailer='' AND status!='unknown'"); ?>
 		<?php }else{ ?>
 			<div class="row text-center">
 				<div class="col-xs-12"><?php echo CBE1_PAYMENTS_NO; ?></div>
