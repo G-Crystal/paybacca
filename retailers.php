@@ -434,7 +434,6 @@ $(document).ready(function(){
 			data : {params:JSON.stringify(item)}
 		})
 		.done(function(data) {
-			console.log(data);
 			$("#retailer_shop_box").append(data);
 			$("#page_num").val(parseInt($("#page_num").val()) + 1);
 		});
