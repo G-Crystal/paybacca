@@ -22,6 +22,8 @@
 
 	require_once("inc/config.inc.php");
 
+	require_once("inc/pagination.inc.php");
+
 
 
 	///////////////  Page config  ///////////////
