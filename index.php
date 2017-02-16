@@ -170,8 +170,7 @@
 						<?php if ($row_featured['cashback'] != "") { ?>
 							<div class="cashback">
 								<?php if ($row_featured['old_cashback'] != "") { ?><span class="old_cashback"><?php echo DisplayCashback($row_featured['old_cashback']); ?></span><?php } ?>
-								<span class="value"><?php echo DisplayCashback($row_featured['cashback']); ?></span>
-								<span class="value">Cash Back</span>
+								<span class="value"><?php echo DisplayCashback($row_featured['cashback']); ?></span><span class="value">Cash Back</span>
 							</div>
 						<?php } else { ?>
 							<div class="cashback">
@@ -214,8 +213,7 @@
 						<?php if ($n_row['cashback'] != "") { ?>
 							<div class="cashback">
 								<?php if ($n_row['old_cashback'] != "") { ?><span class="old_cashback"><?php echo DisplayCashback($n_row['old_cashback']); ?></span><?php } ?>
-								<span class="value"><?php echo DisplayCashback($n_row['cashback']); ?></span>
-								<span class="value">Cash Back</span>
+								<span class="value"><?php echo DisplayCashback($n_row['cashback']); ?></span><span class="value">Cash Back</span>
 							</div>
 						<?php } else { ?>
 							<div class="cashback">
