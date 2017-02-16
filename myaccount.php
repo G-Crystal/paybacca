@@ -383,7 +383,7 @@
 	?>
 
 	<div class="row">
-		<div class="col-xs-12 text-center"><a class="common-btn" href="<?php echo SITE_URL; ?>mysupport.php">Purchase</a></div>
+		<div class="col-xs-12 text-center"><a class="common-btn" href="<?php echo SITE_URL; ?>mysupport.php">Purchase Inquiry</a></div>
 	</div>
 
 	<script type="text/javascript">
