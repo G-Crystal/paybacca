@@ -194,7 +194,6 @@
 				data : {params:JSON.stringify(item)}
 			})
 			.done(function(data) {
-				console.log(data);
 				$("#search_result_box").append(data);
 				$("#page").val(parseInt($("#page").val()) + 1);
 			});
