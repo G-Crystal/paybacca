@@ -362,6 +362,16 @@ $(document).ready(function(){
 			signup_ajax();
 		}
 	});
+
+	$('#loginModal').on('hidden.bs.modal', function () {
+		$("#login_error_msg").html("");
+		$("#login_error_msg").css('display', 'none');
+	});
+
+	$('#signupModal').on('hidden.bs.modal', function () {
+		$("#signup_error_msg").html("");
+		$("#signup_error_msg").css('display', 'none');
+	});
 });
 </script>
 
