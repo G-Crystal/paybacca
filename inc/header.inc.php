@@ -142,32 +142,20 @@
 				<h4 class="modal-title"><?php echo CBE_LOGIN; ?></h4>
 			</div>
 			<div class="modal-body">
-				<?php if (isset($errormsg) || isset($_GET['msg'])) { ?>
 				<div class="row">
-					<div class="col-xs-12 error_msg">
-						<?php if (isset($errormsg) && $errormsg != "") { ?>
-							<?php echo $errormsg; ?>
-						<?php }else{ ?>
-							<?php if ($_GET['msg'] == 1) { echo CBE1_LOGIN_ERR1; } ?>
-							<?php if ($_GET['msg'] == 2) { echo CBE1_LOGIN_ERR2; } ?>
-							<?php if ($_GET['msg'] == 3) { echo CBE1_LOGIN_ERR3; } ?>
-							<?php if ($_GET['msg'] == 4) { echo CBE1_LOGIN_ERR4; } ?>
-							<?php if ($_GET['msg'] == 5) { echo CBE1_LOGIN_ERR1." ".(int)$_SESSION['attems_left']." ".CBE1_LOGIN_ATTEMPTS; } ?>
-							<?php if ($_GET['msg'] == 6) { echo CBE1_LOGIN_ERR6; } ?>
-						<?php } ?>
+					<div class="col-xs-12 error_msg" id="login_error_msg" style="display:none;">
 					</div>
 				</div>
-				<?php } ?>
 
 				<div class="login_box">
 				<form action="<?php echo SITE_URL; ?>login.php" method="post">
 					<div class="row form-row-control">
 						<div class="col-xs-4 form-row-label"><?php echo CBE1_LOGIN_EMAIL2; ?>:</div>
-						<div class="col-xs-8"><input type="text" class="textbox form-full-width" name="username" value="<?php echo getPostParameter('username'); ?>" size="25" required="required" /></div>
+						<div class="col-xs-8"><input type="text" class="textbox form-full-width" id="username" name="username" value="<?php echo getPostParameter('username'); ?>" size="25" required="required" /></div>
 					</div>
 					<div class="row form-row-control">
 						<div class="col-xs-4 form-row-label"><?php echo CBE1_LOGIN_PASSWORD; ?>:</div>
-						<div class="col-xs-8"><input type="password" class="textbox form-full-width" name="password" value="" size="25" required="required" /></div>
+						<div class="col-xs-8"><input type="password" class="textbox form-full-width" id="password" name="password" value="" size="25" required="required" /></div>
 					</div>
 					<div class="row form-row-control">
 						<div class="col-xs-8 col-xs-offset-4 form-row-label">
@@ -177,7 +165,7 @@
 					<div class="row form-row-control justify-content-center">
 						<div class="col-xs-12 text-center">
 							<input type="hidden" name="action" value="login" />
-							<input type="submit" class="submit" name="login" id="login" value="<?php echo CBE1_LOGIN_BUTTON; ?>" />
+							<a id="login_btn" class="common-btn margin-top-10"><?php echo CBE1_LOGIN_BUTTON; ?></a>
 							<a class="common-btn close-login" href="#signupModal" data-toggle="modal"><?php echo CBE_SIGNUP; ?></a>
 						</div>
 					</div>
@@ -289,6 +277,48 @@
 		</div>
 	</div>
 
+
+<script language="javascript">
+$(document).ready(function(){
+	login_ajax = function () {
+		item = {
+			"action" : "login",
+			"username" : $("#username").val(),
+			"password" : $("#password").val(),
+			"rememberme": $("#rememberme").val()
+		}
+
+		$.ajax({
+			type : 'GET',
+			url  : 'server/login.php',
+			data : {params:JSON.stringify(item)}
+		})
+		.done(function(data) {
+			var data = jQuery.parseJSON(data);
+			if (typeof(data['error_msg']) != "undefined")
+			{
+				$("#login_error_msg").css('display', 'inline');
+				$("#login_error_msg").html(data['error_msg']);
+			}
+			else if (typeof(data['url']) != "undefined")
+			{
+				window.location = data['url'];
+			}
+		});
+	}
+	$("#login_btn").click(function(){
+		login_ajax();
+	});
+
+	$("#password").keyup(function(e){ 
+		var code = e.which;
+		if(code==13)e.preventDefault();
+		if(code==32||code==13||code==188||code==186){
+			login_ajax();
+		}
+	});
+});
+</script>
 
 <div id="column_center">
 
