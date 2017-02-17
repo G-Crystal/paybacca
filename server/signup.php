@@ -21,7 +21,7 @@
 		$ref_id		= mysql_real_escape_string($params->referer_id);
 		$ip			= mysql_real_escape_string(getenv("REMOTE_ADDR"));
 
-		if (!(isset($fname) && isset($lname) && isset($email) && isset($pwd) && isset($pwd2)))
+		if (!($fname && $lname && $email && $pwd && $pwd2))
 		{
 			$errs[] = CBE1_SIGNUP_ERR;
 		}
