@@ -407,7 +407,7 @@ $(document).ready(function(){
 	// Forgot ajax process module
 	forgot_ajax = function () {
 		item = {
-			"action" : "signup",
+			"action" : "forgot",
 			"femail" : $("#femail").val(),
 			"captcha" : $("#captcha").val()
 		}
@@ -426,16 +426,12 @@ $(document).ready(function(){
 			}
 			else if (typeof(data['success_msg']) != "undefined")
 			{
-				$("#forgot_success_msg").html(data['error_msg']);
+				$("#forgot_success_msg").html(data['success_msg']);
 				$("#forgot_success_msg").css('display', 'inline');
 			}
-			else if (typeof(data['normal_msg']) != "undefined")
+			else
 			{
 				$("#forgot_normal_msg").css('display', 'inline');
-			}
-			else if (typeof(data['url']) != "undefined")
-			{
-				window.location = data['url'];
 			}
 		});
 	}
