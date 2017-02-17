@@ -217,6 +217,8 @@
 					</div>
 				</div>
 				<?php } ?>
+				<div class="col-xs-12 error_msg" id="signup_error_msg" style="display:none;">
+				</div>
 
 				<?php if (FACEBOOK_CONNECT == 1 && FACEBOOK_APPID != "" && FACEBOOK_SECRET != "") { ?>
 				<div class="row">
@@ -242,11 +244,11 @@
 					</div>
 					<div class="row form-row-control">
 						<div class="col-xs-4 form-row-label"><span class="req">* </span><?php echo CBE1_LABEL_PWD; ?>:</div>
-						<div class="col-xs-8"><input type="password" id="password" class="textbox" name="password" value="" size="27" /> <span class="note"><?php echo CBE1_SIGNUP_PTEXT; ?></span></div>
+						<div class="col-xs-8"><input type="password" id="pwd" class="textbox" name="pwd" value="" size="27" /> <span class="note"><?php echo CBE1_SIGNUP_PTEXT; ?></span></div>
 					</div>
 					<div class="row form-row-control">
 						<div class="col-xs-4 form-row-label"><span class="req">* </span><?php echo CBE1_LABEL_CPWD; ?>:</div>
-						<div class="col-xs-8"><input type="password" id="password2" class="textbox" name="password2" value="" size="27" /></div>
+						<div class="col-xs-8"><input type="password" id="pwd_cfm" class="textbox" name="pwd_cfm" value="" size="27" /></div>
 					</div>
 					<div class="row form-row-control">
 						<div class="col-xs-8 col-xs-offset-4 form-row-label">
@@ -261,7 +263,7 @@
 								<input type="hidden" name="referer_id" id="referer_id" value="<?php echo (int)$_COOKIE['referer_id']; ?>" />
 							<?php } ?>
 							<input type="hidden" name="action" id="action" value="signup" />
-							<input type="submit" class="submit signup" name="Signup" id="Signup" value="<?php echo CBE1_SIGNUP_BUTTON; ?>" />
+							<a id="signup_btn" class="common-btn margin-top-10"><?php echo CBE1_SIGNUP_BUTTON; ?></a>
 							<a class="common-btn close-signup" href="#loginModal" data-toggle="modal"><?php echo CBE1_LOGIN_BUTTON; ?></a>
 						</div>
 					</div>
@@ -297,8 +299,8 @@ $(document).ready(function(){
 			var data = jQuery.parseJSON(data);
 			if (typeof(data['error_msg']) != "undefined")
 			{
-				$("#login_error_msg").css('display', 'inline');
 				$("#login_error_msg").html(data['error_msg']);
+				$("#login_error_msg").css('display', 'inline');
 			}
 			else if (typeof(data['url']) != "undefined")
 			{
@@ -306,15 +308,58 @@ $(document).ready(function(){
 			}
 		});
 	}
+
 	$("#login_btn").click(function(){
 		login_ajax();
 	});
 
 	$("#password").keyup(function(e){ 
 		var code = e.which;
-		if(code==13)e.preventDefault();
-		if(code==32||code==13||code==188||code==186){
+		if(code==13) e.preventDefault();
+		if(code==32 || code==13 || code==188 || code==186) {
 			login_ajax();
+		}
+	});
+	
+	signup_ajax = function () {
+		item = {
+			"action" : "signup",
+			"fname" : $("#fname").val(),
+			"lname" : $("#lname").val(),
+			"email" : $("#email").val(),
+			"pwd" : $("#pwd").val(),
+			"pwd_cfm" : $("#pwd_cfm").val(),
+			"referer_id" : $("#referer_id").val()
+		}
+
+		$.ajax({
+			type : 'GET',
+			url  : 'server/signup.php',
+			data : {params:JSON.stringify(item)}
+		})
+		.done(function(data) {
+			var data = jQuery.parseJSON(data);
+			if (typeof(data['error_msg']) != "undefined")
+			{
+				$("#signup_error_msg").html(data['error_msg']);
+				$("#signup_error_msg").css('display', 'inline');
+			}
+			else if (typeof(data['url']) != "undefined")
+			{
+				window.location = data['url'];
+			}
+		});
+	}
+
+	$("#signup_btn").click(function(){
+		signup_ajax();
+	});
+
+	$("#pwd_cfm").keyup(function(e){ 
+		var code = e.which;
+		if(code==13) e.preventDefault();
+		if(code==32 || code==13 || code==188 || code==186) {
+			signup_ajax();
 		}
 	});
 });
