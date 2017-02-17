@@ -171,7 +171,7 @@
 					</div>
 					<div class="row form-row-control">
 						<div class="col-xs-8 col-xs-offset-4 form-row-label">
-							<a href="<?php echo SITE_URL; ?>forgot.php"><?php echo CBE1_LOGIN_FORGOT; ?></a>
+							<a class="close-login" href="#forgotModal" data-toggle="modal"><?php echo CBE1_LOGIN_FORGOT; ?></a>
 							<?php if (ACCOUNT_ACTIVATION == 1) { ?>
 								<p><a href="<?php echo SITE_URL; ?>activation_email.php"><?php echo CBE1_LOGIN_AEMAIL; ?></a></p>
 							<?php } ?>
@@ -206,17 +206,6 @@
 				<h4 class="modal-title"><?php echo CBE_SIGNUP; ?></h4>
 			</div>
 			<div class="modal-body">
-				<?php if (isset($allerrors) || isset($_GET['msg'])) { ?>
-				<div class="row">
-					<div class="col-xs-12 error_msg">
-					<?php if (isset($_GET['msg']) && $_GET['msg'] == "exists") { ?>
-						<?php echo CBE1_SIGNUP_ERR10; ?> <a href="<?php echo SITE_URL; ?>forgot.php"><?php echo CBE1_LOGIN_FORGOT; ?></a></font><br/>
-					<?php }elseif (isset($allerrors)) { ?>
-						<?php echo $allerrors; ?>
-					<?php }	?>
-					</div>
-				</div>
-				<?php } ?>
 				<div class="col-xs-12 error_msg" id="signup_error_msg" style="display:none;">
 				</div>
 
@@ -279,9 +268,60 @@
 		</div>
 	</div>
 
+	<div class="modal fade" id="forgotModal" role="dialog">
+		<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title"><?php echo CBE1_FORGOT_TITLE; ?></h4>
+			</div>
+			<div class="modal-body">
+				<div class="col-xs-12 error_msg" id="forgot_error_msg" style="display:none;"></div>
+				<div class="col-xs-12 success_msg" id="forgot_success_msg" style="display:none;"></div>
+				<div class="col-xs-12" id="forgot_normal_msg" style="display:none;"><?php echo CBE1_FORGOT_TEXT; ?></div>
+
+				<div class="login_box">
+				<form action="<?php echo SITE_URL; ?>forgot.php" method="post">
+					<div class="row form-row-control">
+						<div class="col-xs-4 form-row-label"><span class="req">* </span><?php echo CBE1_FORGOT_EMAIL; ?>:</div>
+						<div class="col-xs-8"><input type="text" class="textbox" id="femail" name="femail" size="30" required="required" value="<?php echo getPostParameter('femail'); ?>" /></div>
+					</div>
+					<div class="row form-row-control">
+						<div class="col-xs-4 form-row-label"><span class="req">* </span><?php echo CBE1_SIGNUP_SCODE; ?>:</div>
+						<div class="col-xs-8">
+							<input type="text" id="captcha" class="textbox" name="captcha" required="required" value="" size="8" />
+							<img src="<?php echo SITE_URL; ?>captcha.php?rand=<?php echo rand(); ?>&bg=grey" id="captchaimg" align="absmiddle" /> <small><a href="javascript: refreshCaptcha();" title="<?php echo CBE1_SIGNUP_RIMG; ?>"><img src="<?php echo SITE_URL; ?>images/icon_refresh.png" align="absmiddle" alt="<?php echo CBE1_SIGNUP_RIMG; ?>" /></a></small>
+						</div>
+					</div>
+					<div class="row form-row-control justify-content-center">
+						<div class="col-xs-12 text-center">
+							<input type="hidden" name="action" id="action" value="forgot" />
+							<a id="forgot_btn" class="common-btn margin-top-10"><?php echo CBE1_FORGOT_BUTTON; ?></a>
+							<a class="common-btn close-forgot" href="#loginModal" data-toggle="modal"><?php echo CBE1_LOGIN_BUTTON; ?></a>
+						</div>
+					</div>
+				</form>
+				</div>
+				
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+
+		</div>
+	</div>
+
 
 <script language="javascript">
 $(document).ready(function(){
+	refreshCaptcha = function () {
+		var img = document.images['captchaimg'];
+		img.src = img.src.substring(0,img.src.lastIndexOf("?"))+"?rand="+Math.random()*1000+"&bg=grey";
+	}
+
+	// Login ajax process module
 	login_ajax = function () {
 		item = {
 			"action" : "login",
@@ -321,6 +361,7 @@ $(document).ready(function(){
 		}
 	});
 	
+	// Signup ajax process module
 	signup_ajax = function () {
 		item = {
 			"action" : "signup",
@@ -362,6 +403,54 @@ $(document).ready(function(){
 			signup_ajax();
 		}
 	});
+	
+	// Forgot ajax process module
+	forgot_ajax = function () {
+		item = {
+			"action" : "signup",
+			"femail" : $("#femail").val(),
+			"captcha" : $("#captcha").val()
+		}
+
+		$.ajax({
+			type : 'GET',
+			url  : 'server/forgot.php',
+			data : {params:JSON.stringify(item)}
+		})
+		.done(function(data) {
+			var data = jQuery.parseJSON(data);
+			if (typeof(data['error_msg']) != "undefined")
+			{
+				$("#forgot_error_msg").html(data['error_msg']);
+				$("#forgot_error_msg").css('display', 'inline');
+			}
+			else if (typeof(data['success_msg']) != "undefined")
+			{
+				$("#forgot_success_msg").html(data['error_msg']);
+				$("#forgot_success_msg").css('display', 'inline');
+			}
+			else if (typeof(data['normal_msg']) != "undefined")
+			{
+				$("#forgot_normal_msg").css('display', 'inline');
+			}
+			else if (typeof(data['url']) != "undefined")
+			{
+				window.location = data['url'];
+			}
+		});
+	}
+
+	$("#forgot_btn").click(function(){
+		forgot_ajax();
+	});
+
+	$("#captcha").keyup(function(e){ 
+		var code = e.which;
+		if(code==13) e.preventDefault();
+		if(code==32 || code==13 || code==188 || code==186) {
+			forgot_ajax();
+		}
+	});
 
 	$('#loginModal').on('hidden.bs.modal', function () {
 		$("#login_error_msg").html("");
@@ -371,6 +460,14 @@ $(document).ready(function(){
 	$('#signupModal').on('hidden.bs.modal', function () {
 		$("#signup_error_msg").html("");
 		$("#signup_error_msg").css('display', 'none');
+	});
+
+	$('#forgotModal').on('hidden.bs.modal', function () {
+		$("#forgot_error_msg").html("");
+		$("#forgot_error_msg").css('display', 'none');
+		$("#forgot_success_msg").html("");
+		$("#forgot_success_msg").css('display', 'none');
+		$("#forgot_normal_msg").css('display', 'none');
 	});
 });
 </script>
