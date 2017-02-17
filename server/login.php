@@ -17,7 +17,7 @@
 		if (!($username && $pwd))
 		{
 			// $errormsg = CBE1_LOGIN_ERR;
-            echo CBE1_LOGIN_ERR;
+            echo json_encode(array('error_msg' => CBE1_LOGIN_ERR));
             exit();
 		}
 		else
@@ -32,7 +32,7 @@
                 if ($row['status'] == 'inactive')
                 {
                     // header("Location: login.php?msg=2");
-                    echo CBE1_LOGIN_ERR2;
+                    echo json_encode(array('error_msg' => CBE1_LOGIN_ERR2));
                     exit();
                 }
 
@@ -66,7 +66,7 @@
                 }
 
                 // header("Location: ".$redirect_url);
-                echo '<script type="text/javascript">window.location = "' . $redirect_url . '"</script>';
+                echo json_encode(array('url' => $redirect_url));
                 exit();
 			}
 			else
@@ -89,20 +89,20 @@
 							unset($_SESSION['attems_'.$username."_".$ip], $_SESSION['attems_left']);
 
 							// header("Location: login.php?msg=6");
-                            echo CBE1_LOGIN_ERR6;
+                            echo json_encode(array('error_msg' => CBE1_LOGIN_ERR6));
 							exit();
 						}
 						else
 						{
 							// header("Location: login.php?msg=5");
-                            echo CBE1_LOGIN_ERR1." ".(int)$_SESSION['attems_left']." ".CBE1_LOGIN_ATTEMPTS;
+                            echo json_encode(array('error_msg' => CBE1_LOGIN_ERR1." ".(int)$_SESSION['attems_left']." ".CBE1_LOGIN_ATTEMPTS));
 							exit();
 						}
 					}
 				}
 
 				// header("Location: login.php?msg=1");
-                echo CBE1_LOGIN_ERR1;
+                echo json_encode(array('error_msg' => CBE1_LOGIN_ERR1));
 				exit();
 			}
 		}
