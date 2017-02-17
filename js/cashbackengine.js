@@ -298,5 +298,9 @@ $(document).ready(function() {
 		$('#signupModal').modal('hide');
 	});
 
+	$('.close-forgot').on('click', function () {
+		$('#forgotModal').modal('hide');
+	});
+
 });
 
