@@ -41,6 +41,10 @@
     margin-top: 10px;
 }
 
+.thanks-div {
+    font-size: 20px;
+}
+
 @media screen and (min-width: 320px) {
     .store-box-div {
         min-height: 160px;
